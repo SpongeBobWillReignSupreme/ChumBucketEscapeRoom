@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import javax.swing.*;
 
 // required - must use this class at least once
 public class MagnisalisCombinationLock
@@ -47,19 +47,22 @@ public class MagnisalisCombinationLock
         if (openFlag) return openFlag;
 
         // Prompt the player for the combination
-        Scanner in = new Scanner(System.in);
         while(!openFlag)
         {
             System.out.println("=================================================================");
-            System.out.print("Hint: " + hint + "\nPlease enter the passcode:  ");
-            String enteredCombination = (in.nextLine());
+            String enteredCombination = JOptionPane.showInputDialog("Hint: " + hint + "\nPlease enter the passcode:  ");
 
             // Check if the combination is correct
-            if(enteredCombination.equals(combination))
+            if(enteredCombination != null && enteredCombination.equals(combination))
             {
                 // The combination is correct.
                 openFlag = true;
                 System.out.println("Passcode accepted!\n");
+            }
+            else
+            {
+                // The combination is incorrect.
+                System.out.println("Incorrect passcode.  Please try again.");
             }
         }
 
