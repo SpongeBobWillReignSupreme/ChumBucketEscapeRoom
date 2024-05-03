@@ -74,24 +74,47 @@ public class MagnisalisWiringPuzzle
                     if (color.equalsIgnoreCase("red"))
                     {
                         if (!redWire)
+                        {
                             wiresConnected++;
+                            System.out.println("You connected the red wire. " + wiresConnected + "/3 wires connected.");
+                        }
                         redWire = true;
-                    } else if (color.equalsIgnoreCase("blue")) {
-                        if (!blueWire)
-                            wiresConnected++;
-                        blueWire = true;
-                    } else if (color.equalsIgnoreCase("green")) {
-                        if (!greenWire)
-                            wiresConnected++;
-                        greenWire = true;
-                    } else {
-                        System.out.println("There is no " + color + " wire.");
                     }
-                } else {
-                    System.out.println("You can't do that.");
+                    else if (color.equalsIgnoreCase("blue"))
+                    {
+                        if (!blueWire)
+                        {
+                            wiresConnected++;
+                            System.out.println("You connected the blue wire. " + wiresConnected + "/3 wires connected.");
+                        }
+                        blueWire = true;
+                    }
+                    else if (color.equalsIgnoreCase("green"))
+                    {
+                        if (!greenWire)
+                        {
+                            wiresConnected++;
+                            System.out.println("You connected the green wire. " + wiresConnected + "/3 wires connected.");
+                        }
+                        greenWire = true;
+                    }
+                    else if(color.equalsIgnoreCase(""))
+                    {
+                        System.out.println("Please enter the color you would like to connect.");
+                    }
+                    else
+                    {
+                        System.out.println("There is no " + color + " wire. There is a red, blue, and green wire.");
+                    }
+                }
+                else
+                {
+                    System.out.println("Invalid action. Please enter 'connect [color]' or 'cancel'.");
                 }
 
-                if (wiresConnected == 3) {
+                if (wiresConnected >= 3)
+                {
+                    System.out.println("You have successfully connected all of the wires.");
                     puzzleImage = ("####################################\n" +
                             "#####                          #####\n" +
                             "####" + ANSI_BLUE + "=#=#=#=#=#⁅=⁆#=#=#||        " + ASNI_RESET + "####\n" +

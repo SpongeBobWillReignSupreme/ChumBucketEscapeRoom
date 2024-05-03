@@ -3,7 +3,8 @@ import java.util.Scanner;
 // required - must use this class at least once
 public class MagnisalisCombinationLock
 {
-    private String combination,hint;
+    private String hint;
+    private  int combination;
     private boolean openFlag;
 
     // Constructor
@@ -11,7 +12,7 @@ public class MagnisalisCombinationLock
     // The hint is also required.  This can be something like the format for what should be entered.
     //    For example:  (format: ##-##-##)
     //    Leave the hint blank if you don't want to use this.
-    public MagnisalisCombinationLock(String argCombination)
+    public MagnisalisCombinationLock(int argCombination)
     {
         // Set the combination.
         combination = argCombination;
@@ -26,7 +27,7 @@ public class MagnisalisCombinationLock
     // The hint is also required.  This can be something like the format for what should be entered.
     //    For example:  (format: ##-##-##)
     //    Leave the hint blank if you don't want to use this.
-    public MagnisalisCombinationLock(String argCombination, String argHint)
+    public MagnisalisCombinationLock(int argCombination, String argHint)
     {
         // Set the combination.
         combination = argCombination;
@@ -48,10 +49,10 @@ public class MagnisalisCombinationLock
         // Prompt the player for the combination
         Scanner in = new Scanner(System.in);
         System.out.print("Please enter the combination " + hint + ":  ");
-        String enteredCombination = in.nextLine();
+        int enteredCombination = Integer.parseInt(in.nextLine());
 
         // Check if the combination is correct
-        if (enteredCombination.equals(combination))
+        if (enteredCombination == combination)
         {
             // The combination is correct.
             openFlag = true;

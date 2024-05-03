@@ -48,7 +48,7 @@ public class MagnisalisEscapeRoom
         toilet = new MagnisalisNastyToilet();
         shed = new MagnisalisFailedDesignsShed();
         chumBot = new MagnisalisChumBot();
-        lock = new MagnisalisCombinationLock("1234", "format: ####");
+        lock = new MagnisalisCombinationLock(378, "3 digits (###)");
         wiringPuzzle = new MagnisalisWiringPuzzle();
     }
 
@@ -114,6 +114,7 @@ public class MagnisalisEscapeRoom
                 System.out.println("look [noun] - Look around or at a specific object");
                 System.out.println("examine [noun] - Examine a specific object");
                 System.out.println("explain - Explains the game's backstory");
+                System.out.println("items - Lists the items you have");
                 System.out.println("search [noun] - Search a specific object");
                 System.out.println("unlock [noun] - Unlock a specific object");
                 System.out.println("charge [noun] - Charge a specific object");
@@ -188,6 +189,18 @@ public class MagnisalisEscapeRoom
             {
                 System.out.println("You have been captured by Sheldon J. Plankton and trapped in the basement of the Chum Bucket.");
                 System.out.println("You must find a way to escape the Chum Bucket.");
+            }
+            else if(verb.equalsIgnoreCase("items"))
+            {
+                System.out.println("You have the following items:");
+                if(userKey)
+                    System.out.println("Key");
+                if(userParts)
+                    System.out.println("Spare Parts Robot");
+                if(unchargedBattery)
+                    System.out.println("Battery");
+                if(chargedBattery)
+                    System.out.println("Charged Battery");
             }
             else if(verb.equalsIgnoreCase("search"))
             {
@@ -326,6 +339,7 @@ public class MagnisalisEscapeRoom
         if(lock.isUnlocked())
         {
             System.out.println("Congratulations! You have escaped the Chum Bucket!");
+            System.out.println("Thank you for playing! I hope you enjoyed the game.");
         }
         else
         {
