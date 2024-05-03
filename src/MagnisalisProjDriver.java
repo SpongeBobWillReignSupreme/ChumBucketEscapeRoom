@@ -1,7 +1,3 @@
-
-import java.util.HashSet;
-import java.util.Set;
-
 public class MagnisalisProjDriver
 {
     //writing the main
@@ -116,12 +112,12 @@ public class MagnisalisProjDriver
         t1.examine();
         System.out.println("tB2 = " + tB2);
 
-        //MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
-        //escapeRoom.lookAround();
-        //escapeRoom.play();
-
         System.out.println("\n");
-        MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
-        wiringPuzzle.solvePuzzle(true);
+        MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
+        escapeRoom.play();
+
+        //System.out.println("\n");
+        //MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
+        //wiringPuzzle.solvePuzzle(true);
     }
 }

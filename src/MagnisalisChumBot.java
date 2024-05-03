@@ -22,13 +22,13 @@ public class MagnisalisChumBot
         hasChargedBattery = false;
         puzzleSolved = false;
     }
-    
+
     public String toString()
     {
         String output = "hasParts = " + hasParts + "\nhasChargedBattery = " + hasChargedBattery;
         return output;
     }
-    
+
     public boolean getHasParts()
     {
         return hasParts;
@@ -53,7 +53,7 @@ public class MagnisalisChumBot
     {
         puzzleSolved = p;
     }
-    
+
     public void look(boolean userFound)
     {
         if(userFound)
@@ -167,56 +167,6 @@ public class MagnisalisChumBot
     }
     public boolean checkPoweredOn()
     {
-        if(hasParts && hasChargedBattery)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    public boolean fixWiring(boolean userFound)
-    {
-        String ANSI_RED = "\u001B[31m";
-        String ANSI_BLUE = "\u001B[34m";
-        String ANSI_GREEN = "\u001B[32m";
-        String ANSI_RESET = "\u001B[0m";
-
-        if(userFound)
-        {
-            if(hasParts && hasChargedBattery)
-            {
-                if(!puzzleSolved)
-                {
-                    System.out.println("You connect the wires in the correct order to solve the puzzle: ");
-                    System.out.println("####################################\n" +
-                                       "#####                          #####\n" +
-                                       "####" + ANSI_BLUE + "=#=#=#=#=#⁅                 " + ANSI_RESET + "####\n" +
-                                       "####" + ANSI_BLUE + "             ⁆#=#=#||       " + ANSI_RESET + "####\n" +
-                                       "####" + ANSI_RED + "   {}" + ANSI_BLUE + "              \\\\=#.    " + ANSI_RESET + "####\n" +
-                                       "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#⁅    ⁆#=#=\\\\          " + ANSI_RESET + "####\n" +
-                                       "####" + ANSI_RED + "   \\\\=#=#⁅      " + ANSI_GREEN + "||" + ANSI_RED + "  ⁆#=#=#=#" + ANSI_RESET + "####\n" +
-                                       "####" + ANSI_GREEN + "                ||          " + ANSI_RESET + "####\n" +
-                                       "#####" + ANSI_GREEN + "               {}         " + ANSI_RESET + "#####\n" +
-                                       "####################################\n");
-                }
-                else
-                {
-                    System.out.println("");
-                }
-                return true;
-            }
-            else
-            {
-                System.out.println("");
-                return false;
-            }
-        }
-        else
-        {
-            System.out.println("What wiring are you trying to fix?");
-            return false;
-        }
+        return hasParts && hasChargedBattery;
     }
 }

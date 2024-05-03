@@ -18,6 +18,7 @@ public class MagnisalisEscapeRoom
     private boolean userFoundChumBot;
     private boolean chumBotPoweredOn;
     private boolean fixedWiring;
+    private boolean fixedWiringCanceled;
     private boolean enteredCombination;
     private boolean gameOver;
 
@@ -36,7 +37,10 @@ public class MagnisalisEscapeRoom
         unchargedBattery = false;
         chargedBattery = false;
         userFoundChumBot = false;
+        chumBotPoweredOn = false;
         fixedWiring = false;
+        fixedWiringCanceled = false;
+        enteredCombination = false;
         gameOver = false;
 
         chest = new MagnisalisSparePartsChest();
@@ -81,7 +85,7 @@ public class MagnisalisEscapeRoom
 
         while(!gameOver)
         {
-            System.out.println("=========================================");
+            System.out.println("=======================================================================");
             System.out.printf("Enter a command: ");
 
             input = scan.nextLine();
@@ -194,6 +198,7 @@ public class MagnisalisEscapeRoom
                 else if(noun.equalsIgnoreCase("shed"))
                 {
                     shed.examine();
+                    userFoundChumBot = true;
                 }
                 else
                 {
@@ -289,6 +294,7 @@ public class MagnisalisEscapeRoom
             {
                 if(noun.equalsIgnoreCase("wiring") || noun.equalsIgnoreCase("wires"))
                 {
+                    wiringPuzzle.solvePuzzle(chumBotPoweredOn);
                     fixedWiring = wiringPuzzle.checkPuzzleSolved();
                 }
                 else
@@ -304,7 +310,12 @@ public class MagnisalisEscapeRoom
             if(chumBot.checkPoweredOn())
             {
                 chumBotPoweredOn = true;
-                wiringPuzzle.solvePuzzle(true);
+                if(!fixedWiring && !fixedWiringCanceled)
+                {
+                    wiringPuzzle.solvePuzzle(true);
+                    fixedWiring = wiringPuzzle.checkPuzzleSolved();
+                    fixedWiringCanceled = wiringPuzzle.checkCanceled();
+                }
             }
 
             if(lock.isUnlocked())

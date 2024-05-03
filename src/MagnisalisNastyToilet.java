@@ -62,7 +62,7 @@ public class MagnisalisNastyToilet
     //creating the look() and examine() methods
     public void look()
     {
-        System.out.println("You see a nasty toilet, it is clogged with spoiled chum. Don't make it overflow! There is a usable plunger right next to it.");
+        System.out.println("You see a nasty toilet, it is clogged with spoiled chum.\nThere is a usable plunger right next to it. Don't make it overflow!");
     }
     public void examine()
     {

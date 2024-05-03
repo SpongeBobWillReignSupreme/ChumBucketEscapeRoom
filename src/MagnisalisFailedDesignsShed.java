@@ -61,7 +61,7 @@ public class MagnisalisFailedDesignsShed
         }
         else
         {
-            System.out.println("You found an obscure robot in the shed with 'ChumBot' and the digits '378' spray-painted on it's torso and you found a key under the robot.");
+            System.out.println("You found an obscure robot in the shed with 'ChumBot' and the digits '378'\nspray-painted on it's torso and you found a key under the robot.");
             searched = true;
         }
     }
