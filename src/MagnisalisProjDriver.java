@@ -116,8 +116,10 @@ public class MagnisalisProjDriver
         MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
         escapeRoom.play();
 
-        //System.out.println("\n");
         //MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
         //wiringPuzzle.solvePuzzle(true);
+
+        //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
+        //lock.unlock();
     }
 }

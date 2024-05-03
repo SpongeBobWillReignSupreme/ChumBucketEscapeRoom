@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class MagnisalisCombinationLock
 {
     private String hint;
-    private  int combination;
+    private  String combination;
     private boolean openFlag;
 
     // Constructor
@@ -12,7 +12,7 @@ public class MagnisalisCombinationLock
     // The hint is also required.  This can be something like the format for what should be entered.
     //    For example:  (format: ##-##-##)
     //    Leave the hint blank if you don't want to use this.
-    public MagnisalisCombinationLock(int argCombination)
+    public MagnisalisCombinationLock(String argCombination)
     {
         // Set the combination.
         combination = argCombination;
@@ -27,7 +27,7 @@ public class MagnisalisCombinationLock
     // The hint is also required.  This can be something like the format for what should be entered.
     //    For example:  (format: ##-##-##)
     //    Leave the hint blank if you don't want to use this.
-    public MagnisalisCombinationLock(int argCombination, String argHint)
+    public MagnisalisCombinationLock(String argCombination, String argHint)
     {
         // Set the combination.
         combination = argCombination;
@@ -48,14 +48,19 @@ public class MagnisalisCombinationLock
 
         // Prompt the player for the combination
         Scanner in = new Scanner(System.in);
-        System.out.print("Please enter the combination " + hint + ":  ");
-        int enteredCombination = Integer.parseInt(in.nextLine());
-
-        // Check if the combination is correct
-        if (enteredCombination == combination)
+        while(!openFlag)
         {
-            // The combination is correct.
-            openFlag = true;
+            System.out.println("=================================================================");
+            System.out.print("Hint: " + hint + "\nPlease enter the passcode:  ");
+            String enteredCombination = (in.nextLine());
+
+            // Check if the combination is correct
+            if(enteredCombination.equals(combination))
+            {
+                // The combination is correct.
+                openFlag = true;
+                System.out.println("Passcode accepted!\n");
+            }
         }
 
         // Return the status of the lock.

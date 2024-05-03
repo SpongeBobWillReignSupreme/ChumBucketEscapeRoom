@@ -87,7 +87,7 @@ public class MagnisalisChumBot
             }
             else
             {
-                System.out.println("The ChumBot has been disassembled, it is missing a charged battery and some parts,\n you must put it together and insert a charged battery.");
+                System.out.println("The ChumBot has been disassembled, it is missing a charged battery and some parts,\nyou must put it together and insert a charged battery.");
                 System.out.println("The ChumBot has '378' spray-painted on its torso.");
             }
         }

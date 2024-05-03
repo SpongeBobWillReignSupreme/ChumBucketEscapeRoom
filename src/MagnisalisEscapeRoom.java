@@ -7,6 +7,7 @@
     I allowed the user to substitute the word "wiring" for "wires" when using the command "fix [noun]".
 */
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class MagnisalisEscapeRoom
@@ -19,7 +20,6 @@ public class MagnisalisEscapeRoom
     private boolean chumBotPoweredOn;
     private boolean fixedWiring;
     private boolean fixedWiringCanceled;
-    private boolean enteredCombination;
     private boolean gameOver;
 
     private MagnisalisSparePartsChest chest;
@@ -40,7 +40,6 @@ public class MagnisalisEscapeRoom
         chumBotPoweredOn = false;
         fixedWiring = false;
         fixedWiringCanceled = false;
-        enteredCombination = false;
         gameOver = false;
 
         chest = new MagnisalisSparePartsChest();
@@ -48,7 +47,7 @@ public class MagnisalisEscapeRoom
         toilet = new MagnisalisNastyToilet();
         shed = new MagnisalisFailedDesignsShed();
         chumBot = new MagnisalisChumBot();
-        lock = new MagnisalisCombinationLock(378, "3 digits (###)");
+        lock = new MagnisalisCombinationLock("378", "3 digits (###)");
         wiringPuzzle = new MagnisalisWiringPuzzle();
     }
 
@@ -56,6 +55,38 @@ public class MagnisalisEscapeRoom
     {
         String output = "userKey = " + userKey + "\nuserParts = " + userParts + "\nunchargedBattery = " + unchargedBattery + "\nchargedBattery = " + chargedBattery + "\nuserFoundChumBot = " + userFoundChumBot;
         return output;
+    }
+
+    public void menu()
+    {
+        Scanner scan = new Scanner(System.in);
+        String choice;
+
+        System.out.println("Menu: ");
+        System.out.println("0. Quit\n1. Play Game\n2. View Credits");
+        choice = scan.nextLine();
+        System.out.printf("What would you like to do:  ");
+
+        if(choice.equals("0"))
+        {
+            System.out.println("Quitting game...");
+            System.exit(0);
+        }
+        else if(choice.equals("1"))
+        {
+            this.play();
+        }
+        else if(choice.equals("2"))
+        {
+            System.out.println("Credits:");
+            System.out.println("Chum Bucket Escape Room Game");
+            System.out.println("Created by: Konstantinos Magnisalis");
+        }
+        else
+        {
+            System.out.println("Invalid choice.  Please try again.");
+            this.menu();
+        }
     }
 
     public void lookAround()
@@ -85,7 +116,7 @@ public class MagnisalisEscapeRoom
 
         while(!gameOver)
         {
-            System.out.println("=======================================================================");
+            System.out.println("=================================================================");
             System.out.printf("Enter a command: ");
 
             input = scan.nextLine();
@@ -331,6 +362,11 @@ public class MagnisalisEscapeRoom
                 }
             }
 
+            if(fixedWiring)
+            {
+                lock.unlock();
+            }
+
             if(lock.isUnlocked())
             {
                 gameOver = true;
@@ -338,6 +374,8 @@ public class MagnisalisEscapeRoom
         }
         if(lock.isUnlocked())
         {
+            System.out.println("ChumBot:  HELLO, I AM CHUMBOT. I AM FULLY OPERATIONAL AND READY TO ASSIST YOU.\n");
+            System.out.println("You watch as ChumBot flies straight up through the ceiling, breaking through the roof of the Chum Bucket,\nflying around and back into the ChumBucket and busts down the door enabling you to escape.\n");
             System.out.println("Congratulations! You have escaped the Chum Bucket!");
             System.out.println("Thank you for playing! I hope you enjoyed the game.");
         }
@@ -345,6 +383,6 @@ public class MagnisalisEscapeRoom
         {
             System.out.println("GAME OVER: You have failed to escape the Chum Bucket.");
         }
-        System.out.println("=========================================");
+        System.out.println("=================================================================");
     }
 }
