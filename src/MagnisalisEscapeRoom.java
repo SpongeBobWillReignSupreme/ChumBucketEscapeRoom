@@ -7,7 +7,6 @@
     I allowed the user to substitute the word "wiring" for "wires" when using the command "fix [noun]".
 */
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class MagnisalisEscapeRoom
@@ -63,9 +62,10 @@ public class MagnisalisEscapeRoom
         String choice;
 
         System.out.println("Menu: ");
-        System.out.println("0. Quit\n1. Play Game\n2. View Credits");
+        System.out.println("0. Quit\n1. Play Game\n2. View Credits\n");
+        System.out.printf("What would you like to do: ");
         choice = scan.nextLine();
-        System.out.printf("What would you like to do:  ");
+        System.out.println("");
 
         if(choice.equals("0"))
         {
@@ -80,11 +80,12 @@ public class MagnisalisEscapeRoom
         {
             System.out.println("Credits:");
             System.out.println("Chum Bucket Escape Room Game");
-            System.out.println("Created by: Konstantinos Magnisalis");
+            System.out.println("Created by: Konstantinos Magnisalis\n");
+            this.menu();
         }
         else
         {
-            System.out.println("Invalid choice.  Please try again.");
+            System.out.println("Invalid choice.  Please try again.\n");
             this.menu();
         }
     }

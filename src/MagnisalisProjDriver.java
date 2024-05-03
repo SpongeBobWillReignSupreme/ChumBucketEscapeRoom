@@ -114,7 +114,7 @@ public class MagnisalisProjDriver
 
         System.out.println("\n");
         MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
-        escapeRoom.play();
+        escapeRoom.menu();
 
         //MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
         //wiringPuzzle.solvePuzzle(true);
