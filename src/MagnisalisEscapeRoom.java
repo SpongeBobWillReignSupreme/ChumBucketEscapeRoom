@@ -2,8 +2,9 @@
     I allowed the user to substitute the word "open" for "unlock" when using the command "unlock [noun]".
     I allowed the user to substitute the word "grab" for "take" when using the command "take [noun]".
     I allowed the user to substitute the word "exit" for "quit" when using the command "quit".
-    I allowed the user to substitute the word "commands" for "help" when using the command "help".
+    I allowed the user to substitute the words "commands", "cmds", and "howto" for "help" when using the command "help".
     I allowed the user to substitute the word "around" for nothing when using the command "look [noun]".
+    I allowed the user to substitute the word "wiring" for "wires" when using the command "fix [noun]".
 */
 
 import java.util.Scanner;
@@ -15,6 +16,9 @@ public class MagnisalisEscapeRoom
     private boolean unchargedBattery;
     private boolean chargedBattery;
     private boolean userFoundChumBot;
+    private boolean chumBotPoweredOn;
+    private boolean fixedWiring;
+    private boolean enteredCombination;
     private boolean gameOver;
 
     private MagnisalisSparePartsChest chest;
@@ -22,6 +26,8 @@ public class MagnisalisEscapeRoom
     private MagnisalisNastyToilet toilet;
     private MagnisalisFailedDesignsShed shed;
     private MagnisalisChumBot chumBot;
+    private MagnisalisCombinationLock lock;
+    private MagnisalisWiringPuzzle wiringPuzzle;
 
     public MagnisalisEscapeRoom()
     {
@@ -30,6 +36,7 @@ public class MagnisalisEscapeRoom
         unchargedBattery = false;
         chargedBattery = false;
         userFoundChumBot = false;
+        fixedWiring = false;
         gameOver = false;
 
         chest = new MagnisalisSparePartsChest();
@@ -37,6 +44,8 @@ public class MagnisalisEscapeRoom
         toilet = new MagnisalisNastyToilet();
         shed = new MagnisalisFailedDesignsShed();
         chumBot = new MagnisalisChumBot();
+        lock = new MagnisalisCombinationLock("1234", "format: ####");
+        wiringPuzzle = new MagnisalisWiringPuzzle();
     }
 
     public String toString()
@@ -95,11 +104,12 @@ public class MagnisalisEscapeRoom
                 gameOver = true;
                 System.out.println("Quitting game...");
             }
-            else if(verb.equalsIgnoreCase("help") || verb.equalsIgnoreCase("commands"))
+            else if(verb.equalsIgnoreCase("help") || verb.equalsIgnoreCase("commands") || verb.equalsIgnoreCase("cmds") || verb.equalsIgnoreCase("howto"))
             {
                 System.out.println("Commands:");
                 System.out.println("look [noun] - Look around or at a specific object");
                 System.out.println("examine [noun] - Examine a specific object");
+                System.out.println("explain - Explains the game's backstory");
                 System.out.println("search [noun] - Search a specific object");
                 System.out.println("unlock [noun] - Unlock a specific object");
                 System.out.println("charge [noun] - Charge a specific object");
@@ -169,6 +179,11 @@ public class MagnisalisEscapeRoom
                 {
                     System.out.println("You cannot examine that.");
                 }
+            }
+            else if(verb.equalsIgnoreCase("explain"))
+            {
+                System.out.println("You have been captured by Sheldon J. Plankton and trapped in the basement of the Chum Bucket.");
+                System.out.println("You must find a way to escape the Chum Bucket.");
             }
             else if(verb.equalsIgnoreCase("search"))
             {
@@ -270,17 +285,34 @@ public class MagnisalisEscapeRoom
                     System.out.println("You cannot flush that.");
                 }
             }
+            else if(verb.equalsIgnoreCase("fix"))
+            {
+                if(noun.equalsIgnoreCase("wiring") || noun.equalsIgnoreCase("wires"))
+                {
+                    fixedWiring = wiringPuzzle.checkPuzzleSolved();
+                }
+                else
+                {
+                    System.out.println("You cannot fix that.");
+                }
+            }
             else
             {
                 System.out.println("Invalid command, you cannot '" + verb + "' that.\nType \"help\" for a list of commands.");
             }
 
-            if(chumBot.getPuzzleSolved())
+            if(chumBot.checkPoweredOn())
+            {
+                chumBotPoweredOn = true;
+                wiringPuzzle.solvePuzzle(true);
+            }
+
+            if(lock.isUnlocked())
             {
                 gameOver = true;
             }
         }
-        if(chumBot.getPuzzleSolved())
+        if(lock.isUnlocked())
         {
             System.out.println("Congratulations! You have escaped the Chum Bucket!");
         }
