@@ -14,44 +14,17 @@ public class MagnisalisChumBot
 {
     private boolean hasParts;
     private boolean hasChargedBattery;
-    private boolean puzzleSolved;
 
     public MagnisalisChumBot()
     {
         hasParts = false;
         hasChargedBattery = false;
-        puzzleSolved = false;
     }
 
     public String toString()
     {
         String output = "hasParts = " + hasParts + "\nhasChargedBattery = " + hasChargedBattery;
         return output;
-    }
-
-    public boolean getHasParts()
-    {
-        return hasParts;
-    }
-    public boolean getHasChargedBattery()
-    {
-        return hasChargedBattery;
-    }
-    public boolean getPuzzleSolved()
-    {
-        return puzzleSolved;
-    }
-    public void setHasParts(boolean p)
-    {
-        hasParts = p;
-    }
-    public void setHasChargedBattery(boolean b)
-    {
-        hasChargedBattery = b;
-    }
-    public void setPuzzleSolved(boolean p)
-    {
-        puzzleSolved = p;
     }
 
     public void look(boolean userFound)
@@ -103,9 +76,9 @@ public class MagnisalisChumBot
         {
             if(userParts)
             {
-                if (!hasParts)
+                if(!hasParts)
                 {
-                    if (!hasChargedBattery)
+                    if(!hasChargedBattery)
                     {
                         System.out.println("You have reassembled the ChumBot, however it is still missing a charged battery.");
                     }
@@ -133,9 +106,9 @@ public class MagnisalisChumBot
     }
     public void insertBattery(boolean userChargedBattery, boolean userFound)
     {
-        if(userChargedBattery)
+        if(userFound)
         {
-            if(userFound)
+            if(userChargedBattery)
             {
                 if(!hasChargedBattery)
                 {
@@ -157,12 +130,12 @@ public class MagnisalisChumBot
             }
             else
             {
-                System.out.println("What are you trying to insert a battery into?");
+                System.out.println("You don't have a charged battery.");
             }
         }
         else
         {
-            System.out.println("You don't have a charged battery.");
+            System.out.println("What are you trying to insert a battery into?");
         }
     }
     public boolean checkPoweredOn()

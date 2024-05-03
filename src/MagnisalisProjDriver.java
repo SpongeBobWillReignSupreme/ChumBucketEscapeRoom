@@ -3,6 +3,7 @@ public class MagnisalisProjDriver
     //writing the main
     public static void main(String[]args)
     {
+        /*
         //SparePartsChest class
         
         //testing the default constructor
@@ -111,15 +112,15 @@ public class MagnisalisProjDriver
         boolean tB2 = t1.takeBattery();
         t1.examine();
         System.out.println("tB2 = " + tB2);
+        //MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
+        //wiringPuzzle.solvePuzzle(true);
+        //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
+        //lock.unlock();
+         */
 
-        System.out.println("\n");
         MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
         escapeRoom.menu();
 
-        //MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
-        //wiringPuzzle.solvePuzzle(true);
-
-        //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
-        //lock.unlock();
+        // I had accessors and mutators, but I got rid of the useless ones so the classes are easier to read.
     }
 }

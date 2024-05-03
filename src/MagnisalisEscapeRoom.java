@@ -46,8 +46,8 @@ public class MagnisalisEscapeRoom
         toilet = new MagnisalisNastyToilet();
         shed = new MagnisalisFailedDesignsShed();
         chumBot = new MagnisalisChumBot();
-        lock = new MagnisalisCombinationLock("378", "3 digits (###)");
         wiringPuzzle = new MagnisalisWiringPuzzle();
+        lock = new MagnisalisCombinationLock("378", "3 digits (###)");
     }
 
     public String toString()
@@ -155,7 +155,7 @@ public class MagnisalisEscapeRoom
                 System.out.println("attach [noun] - Attach a specific object");
                 System.out.println("plunge [noun] - Plunge a specific object");
                 System.out.println("flush [noun] - Flush a specific object");
-                System.out.println("fix [noun] - Fix a specific object");
+                System.out.println("fix [noun] - Fix a specific object");;
                 System.out.println("quit");
             }
             else if(verb.equalsIgnoreCase("look"))
@@ -362,7 +362,6 @@ public class MagnisalisEscapeRoom
                     fixedWiringCanceled = wiringPuzzle.checkCanceled();
                 }
             }
-
             if(fixedWiring)
             {
                 lock.unlock();

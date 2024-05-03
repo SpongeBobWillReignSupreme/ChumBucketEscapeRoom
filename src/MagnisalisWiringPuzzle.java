@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class MagnisalisWiringPuzzle
 {
-    private String ASNI_RESET = "\u001B[0m";
+    private String ANSI_RESET = "\u001B[0m";
     private String ANSI_RED = "\u001B[31m";
     private String ANSI_BLUE = "\u001B[34m";
     private String ANSI_GREEN = "\u001B[32m";
@@ -11,7 +11,6 @@ public class MagnisalisWiringPuzzle
     private boolean blueWire;
     private boolean greenWire;
     private boolean canceled;
-
     public MagnisalisWiringPuzzle()
     {
         redWire = false;
@@ -26,13 +25,13 @@ public class MagnisalisWiringPuzzle
         {
             String puzzleImage = ("####################################\n" +
                     "#####                          #####\n" +
-                    "####" + ANSI_BLUE + "=#=#=#=#=#{                 " + ASNI_RESET + "####\n" +
-                    "####" + ANSI_BLUE + "             }#=#=#||       " + ASNI_RESET + "####\n" +
-                    "####" + ANSI_RED + "   {}" + ANSI_BLUE + "              \\\\=#.    " + ASNI_RESET + "####\n" +
-                    "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#{    }#=#=\\\\          " + ASNI_RESET + "####\n" +
-                    "####" + ANSI_RED + "   \\\\=#=#{      " + ANSI_GREEN + "||" + ANSI_RED + "  }#=#=#=#" + ASNI_RESET + "####\n" +
-                    "####" + ANSI_GREEN + "                ||          " + ASNI_RESET + "####\n" +
-                    "#####" + ANSI_GREEN + "               {}         " + ASNI_RESET + "#####\n" +
+                    "####" + ANSI_BLUE + "=#=#=#=#=#{                 " + ANSI_RESET + "####\n" +
+                    "####" + ANSI_BLUE + "             }#=#=#||       " + ANSI_RESET + "####\n" +
+                    "####" + ANSI_RED + "   {}" + ANSI_BLUE + "              \\\\=#.    " + ANSI_RESET + "####\n" +
+                    "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#{    }#=#=\\\\          " + ANSI_RESET + "####\n" +
+                    "####" + ANSI_RED + "   \\\\=#=#{      " + ANSI_GREEN + "||" + ANSI_RED + "  }#=#=#=#" + ANSI_RESET + "####\n" +
+                    "####" + ANSI_GREEN + "                ||          " + ANSI_RESET + "####\n" +
+                    "#####" + ANSI_GREEN + "               {}         " + ANSI_RESET + "#####\n" +
                     "####################################\n");
             Scanner scanner = new Scanner(System.in);
             String input;
@@ -43,7 +42,7 @@ public class MagnisalisWiringPuzzle
 
             System.out.println("You must connect wires of the same color by using 'connect [color]'.\nEnter 'cancel' to stop fixing the wiring.");
 
-            while (chumBotPoweredOn)
+            while(!this.checkPuzzleSolved())
             {
                 System.out.println("=================================================================");
                 System.out.println(puzzleImage);
@@ -114,84 +113,89 @@ public class MagnisalisWiringPuzzle
 
                 if (wiresConnected >= 3)
                 {
-                    System.out.println("You have successfully connected all of the wires.");
                     puzzleImage = ("####################################\n" +
                             "#####                          #####\n" +
-                            "####" + ANSI_BLUE + "=#=#=#=#=#{=}#=#=#||        " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_BLUE + "                  \\\\=#.     " + ASNI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "=#=#=#=#=#{=}#=#=#||        " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "                  \\\\=#.     " + ANSI_RESET + "####\n" +
                             "####                            ####\n" +
-                            "####" + ANSI_GREEN + "#=#=#{=}#=#=#=\\\\            " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "        .#=#=#" + ANSI_GREEN + "||" + ANSI_RED + "=#{=}#=#=#=#" + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "              {}            " + ASNI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "#=#=#{=}#=#=#=\\\\            " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "        .#=#=#" + ANSI_GREEN + "||" + ANSI_RED + "=#{=}#=#=#=#" + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "              {}            " + ANSI_RESET + "####\n" +
                             "#####                          #####\n" +
-                            "####################################\n");
+                            "####################################");
+                    System.out.println("=================================================================");
                     System.out.println(puzzleImage);
-                    break;
-                } else if (redWire && greenWire) {
+                    System.out.println("You have successfully connected all of the wires!\n");
+                    this.checkPuzzleSolved();
+                }
+                else if (redWire && greenWire)
+                {
                     puzzleImage = ("####################################\n" +
                             "#####                          #####\n" +
-                            "####" + ANSI_BLUE + "=#=#=#=#=#{                 " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_BLUE + "             }#=#=#||       " + ASNI_RESET + "####\n" +
-                            "####     " + ANSI_BLUE + "              \\\\=#.    " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "#=#=#{=}#=#=#=\\\\            " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "         .#=#=" + ANSI_GREEN + "||" + ANSI_RED + "=#{=}#=#=#=#" + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "              {}            " + ASNI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "=#=#=#=#=#{                 " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "             }#=#=#||       " + ANSI_RESET + "####\n" +
+                            "####     " + ANSI_BLUE + "              \\\\=#.    " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "#=#=#{=}#=#=#=\\\\            " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "         .#=#=" + ANSI_GREEN + "||" + ANSI_RED + "=#{=}#=#=#=#" + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "              {}            " + ANSI_RESET + "####\n" +
                             "#####                          #####\n" +
                             "####################################\n");
-                } else if (redWire && blueWire) {
+                }
+                else if (redWire && blueWire)
+                {
                     puzzleImage = ("####################################\n" +
                             "#####                          #####\n" +
-                            "####" + ANSI_BLUE + "=#=#=#=#=#{=}#=#=#||        " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_BLUE + "                  \\\\=#.     " + ASNI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "=#=#=#=#=#{=}#=#=#||        " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "                  \\\\=#.     " + ANSI_RESET + "####\n" +
                             "####                            ####\n" +
-                            "####" + ANSI_GREEN + "#=#=#{    }#=#=\\\\           " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "         .#=#=#" + ANSI_GREEN + "||" + ANSI_RED + "#{=}#=#=#=#" + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "               ||           " + ASNI_RESET + "####\n" +
-                            "#####" + ANSI_GREEN + "              {}          " + ASNI_RESET + "#####\n" +
+                            "####" + ANSI_GREEN + "#=#=#{    }#=#=\\\\           " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "         .#=#=#" + ANSI_GREEN + "||" + ANSI_RED + "#{=}#=#=#=#" + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "               ||           " + ANSI_RESET + "####\n" +
+                            "#####" + ANSI_GREEN + "              {}          " + ANSI_RESET + "#####\n" +
                             "####################################\n");
                 } else if (greenWire && blueWire) {
                     puzzleImage = ("####################################\n" +
                             "#####                          #####\n" +
-                            "####" + ANSI_BLUE + "=#=#=#=#=#{=}#=#=#||        " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_BLUE + "                  \\\\=#.     " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "   {}" + ANSI_BLUE + "                       " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#{=}#=#=#=\\\\           " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "   \\\\=#=#{     " + ANSI_GREEN + "||" + ANSI_RED + "   }#=#=#=#" + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "               {}           " + ASNI_RESET + "####\n" +
-                            "#####" + ANSI_GREEN + "                          " + ASNI_RESET + "#####\n" +
+                            "####" + ANSI_BLUE + "=#=#=#=#=#{=}#=#=#||        " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "                  \\\\=#.     " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "   {}" + ANSI_BLUE + "                       " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#{=}#=#=#=\\\\           " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "   \\\\=#=#{     " + ANSI_GREEN + "||" + ANSI_RED + "   }#=#=#=#" + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "               {}           " + ANSI_RESET + "####\n" +
+                            "#####" + ANSI_GREEN + "                          " + ANSI_RESET + "#####\n" +
                             "####################################\n");
                 } else if (redWire) {
                     puzzleImage = ("####################################\n" +
                             "#####                          #####\n" +
-                            "####" + ANSI_BLUE + "=#=#=#=#=#{                 " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_BLUE + "             }#=#=#||       " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "     " + ANSI_BLUE + "              \\\\=#.    " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "#=#=#{    }#=#=\\\\           " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "         .#=#=#" + ANSI_GREEN + "||" + ANSI_RED + "#{=}#=#=#=#" + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "               ||           " + ASNI_RESET + "####\n" +
-                            "#####" + ANSI_GREEN + "              {}          " + ASNI_RESET + "#####\n" +
+                            "####" + ANSI_BLUE + "=#=#=#=#=#{                 " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "             }#=#=#||       " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "     " + ANSI_BLUE + "              \\\\=#.    " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "#=#=#{    }#=#=\\\\           " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "         .#=#=#" + ANSI_GREEN + "||" + ANSI_RED + "#{=}#=#=#=#" + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "               ||           " + ANSI_RESET + "####\n" +
+                            "#####" + ANSI_GREEN + "              {}          " + ANSI_RESET + "#####\n" +
                             "####################################\n");
                 } else if (greenWire) {
                     puzzleImage = ("####################################\n" +
                             "#####                          #####\n" +
-                            "####" + ANSI_BLUE + "=#=#=#=#=#{                 " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_BLUE + "             }#=#=#||       " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "   {}" + ANSI_BLUE + "              \\\\=#.    " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#{=}#=#=#=\\\\           " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "   \\\\=#=#{     " + ANSI_GREEN + "||" + ANSI_RED + "   }#=#=#=#" + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "               {}           " + ASNI_RESET + "####\n" +
-                            "#####" + ANSI_GREEN + "                          " + ASNI_RESET + "#####\n" +
+                            "####" + ANSI_BLUE + "=#=#=#=#=#{                 " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "             }#=#=#||       " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "   {}" + ANSI_BLUE + "              \\\\=#.    " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#{=}#=#=#=\\\\           " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "   \\\\=#=#{     " + ANSI_GREEN + "||" + ANSI_RED + "   }#=#=#=#" + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "               {}           " + ANSI_RESET + "####\n" +
+                            "#####" + ANSI_GREEN + "                          " + ANSI_RESET + "#####\n" +
                             "####################################\n");
                 } else if (blueWire) {
                     puzzleImage = ("####################################\n" +
                             "#####                          #####\n" +
-                            "####" + ANSI_BLUE + "=#=#=#=#=#{=}#=#=#||        " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_BLUE + "                  \\\\=#.     " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "   {}" + ANSI_BLUE + "                       " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#{    }#=#=\\\\          " + ASNI_RESET + "####\n" +
-                            "####" + ANSI_RED + "   \\\\=#=#{      " + ANSI_GREEN + "||" + ANSI_RED + "  }#=#=#=#" + ASNI_RESET + "####\n" +
-                            "####" + ANSI_GREEN + "                ||          " + ASNI_RESET + "####\n" +
-                            "#####" + ANSI_GREEN + "               {}         " + ASNI_RESET + "#####\n" +
+                            "####" + ANSI_BLUE + "=#=#=#=#=#{=}#=#=#||        " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_BLUE + "                  \\\\=#.     " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "   {}" + ANSI_BLUE + "                       " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "#=#" + ANSI_RED + "||" + ANSI_GREEN + "#{    }#=#=\\\\          " + ANSI_RESET + "####\n" +
+                            "####" + ANSI_RED + "   \\\\=#=#{      " + ANSI_GREEN + "||" + ANSI_RED + "  }#=#=#=#" + ANSI_RESET + "####\n" +
+                            "####" + ANSI_GREEN + "                ||          " + ANSI_RESET + "####\n" +
+                            "#####" + ANSI_GREEN + "               {}         " + ANSI_RESET + "#####\n" +
                             "####################################\n");
                 }
             }

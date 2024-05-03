@@ -25,23 +25,6 @@ public class MagnisalisFailedDesignsShed
         return output;
     }
 
-    public boolean getHasKey()
-    {
-        return hasKey;
-    }
-    public boolean getSearched()
-    {
-        return searched;
-    }
-    private void setHasKey(boolean k)
-    {
-        hasKey = k;
-    }
-    private void setSearched(boolean s)
-    {
-        searched = s;
-    }
-
     public void look()
     {
         System.out.println("You see a shed filled with useless contraptions..");
@@ -86,5 +69,10 @@ public class MagnisalisFailedDesignsShed
             System.out.println("What key are you trying to take?");
             return false;
         }
+    }
+
+    public boolean checkSearched()
+    {
+        return searched;
     }
 }

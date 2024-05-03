@@ -1,4 +1,4 @@
-import javax.swing.*;
+import java.util.Scanner;
 
 // required - must use this class at least once
 public class MagnisalisCombinationLock
@@ -44,16 +44,23 @@ public class MagnisalisCombinationLock
     public boolean unlock()
     {
         // If the lock is already open, nothing should be done.
-        if (openFlag) return openFlag;
+        if(openFlag) return openFlag;
 
         // Prompt the player for the combination
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("=================================================================");
+        System.out.println("CHUMBOT SYSTEMS BOOTING UP...");
+        System.out.println("SYSTEMS BOOTED[\nCHUMBOT SECURITY SYSTEM:");
+
         while(!openFlag)
         {
             System.out.println("=================================================================");
-            String enteredCombination = JOptionPane.showInputDialog("Hint: " + hint + "\nPlease enter the passcode:  ");
+            System.out.print("Hint: " + hint + "\nPlease enter the passcode:  ");
+            String enteredCombination = (in.nextLine());
 
             // Check if the combination is correct
-            if(enteredCombination != null && enteredCombination.equals(combination))
+            if(enteredCombination.equals(combination))
             {
                 // The combination is correct.
                 openFlag = true;

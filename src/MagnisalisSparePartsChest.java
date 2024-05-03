@@ -21,25 +21,7 @@ public class MagnisalisSparePartsChest
         hasChumBotParts = true;
     }
     
-    //creating the accessor and mutator methods
-    public boolean getSearched()
-    {
-        return searched;
-    }
-    public boolean getHasChumBotParts()
-    {
-        return hasChumBotParts;
-    }
-    public void setSearched(boolean s)
-    {
-        searched = s;
-    }
-    public void setHasChumBotParts(boolean h)
-    {
-        hasChumBotParts = h;
-    }
-    
-    //creating the toString
+    //creating the toString()
     public String toString()
     {
         String output = "Searched = " + searched + "\nhasParts = " + hasChumBotParts;
@@ -85,7 +67,7 @@ public class MagnisalisSparePartsChest
             }
             else
             {
-                System.out.println("You already have the robot parts in your hands.");
+                System.out.println("You already have the robot parts in your hand.");
             }
             hasChumBotParts = false;
             return true;
