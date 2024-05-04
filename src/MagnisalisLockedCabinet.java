@@ -42,8 +42,7 @@ public class MagnisalisLockedCabinet
     //creating the toString() method
     public String toString()
     {
-        String output = "Locked = " + locked + "\nChargerUsed = " + chargerUsed;
-        return output;
+        return "locked = " + locked + "\nChargerUsed = " + chargerUsed;
     }
     
     //creating the look and examine methods
@@ -108,7 +107,7 @@ public class MagnisalisLockedCabinet
                 }
                 else
                 {
-                    System.out.println("You charged the battery large battery.");
+                    System.out.println("You charged the large battery.");
                     chargerUsed = true;
                 }
                 return true;

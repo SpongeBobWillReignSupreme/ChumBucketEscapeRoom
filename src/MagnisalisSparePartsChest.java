@@ -12,20 +12,19 @@ public class MagnisalisSparePartsChest
 {
     //creating the instance variables
     private boolean searched;
-    private boolean hasChumBotParts;
+    private boolean containsChumBotParts;
     
     //creating the default constructor
     public MagnisalisSparePartsChest()
     {
         searched = false;
-        hasChumBotParts = true;
+        containsChumBotParts = true;
     }
     
     //creating the toString()
     public String toString()
     {
-        String output = "Searched = " + searched + "\nhasParts = " + hasChumBotParts;
-        return output;
+        return "searched = " + searched + "\ncontainsParts = " + containsChumBotParts;
     }
     
     //creating the look() method
@@ -39,19 +38,18 @@ public class MagnisalisSparePartsChest
     {
         if(searched)
         {
-            if(hasChumBotParts)
+            if(containsChumBotParts)
             {
-                System.out.println("The chest has some spare robot parts in it.");
+                System.out.println("There are some spare robot parts in the chest.");
             }
             else
             {
-                System.out.println("You have already searched this.. Nothing to see here!");
-
+                System.out.println("You have already searched this. Nothing to see here..");
             }
         }
         else
         {
-            System.out.println("You opened the chest and found some spare robot parts!");
+            System.out.println("The chest is covered in barnacles and treasure.\nYou opened the chest and found some spare robot parts!");
             searched = true;
         }
     }
@@ -61,15 +59,15 @@ public class MagnisalisSparePartsChest
     {
         if(searched)
         {
-            if(hasChumBotParts)
+            if(containsChumBotParts)
             {
                 System.out.println("You took the robot parts from the chest.");
+                containsChumBotParts = false;
             }
             else
             {
                 System.out.println("You already have the robot parts in your hand.");
             }
-            hasChumBotParts = false;
             return true;
         }
         else

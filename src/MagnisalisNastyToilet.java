@@ -71,7 +71,7 @@ public class MagnisalisNastyToilet
         else
         {
             if(hasBattery)
-                System.out.println("This is an empty toilet, there is a battery at the bottom of the toilet bowl.");
+                System.out.println("This is an empty toilet, there is a large battery at the bottom of the toilet bowl.");
             else
                 System.out.println("This is an empty toilet.");
         }
@@ -111,7 +111,7 @@ public class MagnisalisNastyToilet
             if(plungeCount == 2)
             {
                 isFlushed = true;
-                System.out.println("You cleared the toilet! You see a uncharged battery at the bottom.");
+                System.out.println("You cleared the toilet! You see a large battery at the bottom.");
             }
             else
             {

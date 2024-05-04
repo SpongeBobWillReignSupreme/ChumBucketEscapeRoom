@@ -18,7 +18,6 @@ public class MagnisalisEscapeRoom
     private boolean userFoundChumBot;
     private boolean chumBotPoweredOn;
     private boolean fixedWiring;
-    private boolean fixedWiringCanceled;
     private boolean gameOver;
 
     private MagnisalisSparePartsChest chest;
@@ -38,7 +37,6 @@ public class MagnisalisEscapeRoom
         userFoundChumBot = false;
         chumBotPoweredOn = false;
         fixedWiring = false;
-        fixedWiringCanceled = false;
         gameOver = false;
 
         chest = new MagnisalisSparePartsChest();
@@ -52,8 +50,7 @@ public class MagnisalisEscapeRoom
 
     public String toString()
     {
-        String output = "userKey = " + userKey + "\nuserParts = " + userParts + "\nunchargedBattery = " + unchargedBattery + "\nchargedBattery = " + chargedBattery + "\nuserFoundChumBot = " + userFoundChumBot;
-        return output;
+        return "userKey = " + userKey + "\nuserParts = " + userParts + "\nunchargedBattery = " + unchargedBattery + "\nchargedBattery = " + chargedBattery + "\nuserFoundChumBot = " + userFoundChumBot;
     }
 
     public void menu()
@@ -151,11 +148,12 @@ public class MagnisalisEscapeRoom
                 System.out.println("unlock [noun] - Unlock a specific object");
                 System.out.println("charge [noun] - Charge a specific object");
                 System.out.println("take [noun] - Pick up a specific object");
+                System.out.println("enter [noun] - Enter a specific code");
                 System.out.println("insert [noun] - Insert a specific object");
                 System.out.println("attach [noun] - Attach a specific object");
                 System.out.println("plunge [noun] - Plunge a specific object");
                 System.out.println("flush [noun] - Flush a specific object");
-                System.out.println("fix [noun] - Fix a specific object");;
+                System.out.println("fix [noun] - Fix a specific object");
                 System.out.println("quit");
             }
             else if(verb.equalsIgnoreCase("look"))
@@ -291,6 +289,17 @@ public class MagnisalisEscapeRoom
                     System.out.println("You cannot take that.");
                 }
             }
+            else if(verb.equalsIgnoreCase("enter"))
+            {
+                if(noun.equalsIgnoreCase("passcode"))
+                {
+                    lock.unlock(fixedWiring);
+                }
+                else
+                {
+                    System.out.println("You cannot enter that.");
+                }
+            }
             else if(verb.equalsIgnoreCase("insert"))
             {
                 if(noun.equalsIgnoreCase("battery"))
@@ -355,16 +364,17 @@ public class MagnisalisEscapeRoom
             if(chumBot.checkPoweredOn())
             {
                 chumBotPoweredOn = true;
-                if(!fixedWiring && !fixedWiringCanceled)
+                if(!fixedWiring && !wiringPuzzle.checkCancelled())
                 {
                     wiringPuzzle.solvePuzzle(true);
                     fixedWiring = wiringPuzzle.checkPuzzleSolved();
-                    fixedWiringCanceled = wiringPuzzle.checkCanceled();
+                    wiringPuzzle.checkCancelled();
                 }
             }
-            if(fixedWiring)
+
+            if(fixedWiring && !lock.isCancelled())
             {
-                lock.unlock();
+                lock.unlock(true);
             }
 
             if(lock.isUnlocked())

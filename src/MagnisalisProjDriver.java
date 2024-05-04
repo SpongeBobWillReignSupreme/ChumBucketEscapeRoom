@@ -116,7 +116,9 @@ public class MagnisalisProjDriver
         //wiringPuzzle.solvePuzzle(true);
         //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
         //lock.unlock();
-         */
+        MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
+        wiringPuzzle.solvePuzzle(true);
+        */
 
         MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
         escapeRoom.menu();
