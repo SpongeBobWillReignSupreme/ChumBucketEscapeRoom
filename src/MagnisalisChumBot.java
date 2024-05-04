@@ -134,7 +134,7 @@ public class MagnisalisChumBot
         }
         else
         {
-            System.out.println("What are you trying to insert a battery into?");
+            System.out.println("What are you trying to insert?");
         }
     }
     public boolean checkPoweredOn()

@@ -62,30 +62,32 @@ public class MagnisalisEscapeRoom
 
         System.out.println("Menu: ");
         System.out.println("0. Quit\n1. Play Game\n2. View Credits\n");
-        System.out.printf("What would you like to do: ");
+        System.out.print("What would you like to do: ");
         choice = scan.nextLine();
         System.out.println("");
 
-        if(choice.equals("0"))
+        switch(choice)
         {
-            System.out.println("Quitting game...");
-            System.exit(0);
-        }
-        else if(choice.equals("1"))
-        {
-            this.play();
-        }
-        else if(choice.equals("2"))
-        {
-            System.out.println("Credits:");
-            System.out.println("Chum Bucket Escape Room Game");
-            System.out.println("Created by: Konstantinos Magnisalis\n");
-            this.menu();
-        }
-        else
-        {
-            System.out.println("Invalid choice.  Please try again.\n");
-            this.menu();
+            case "0":
+                System.out.println("Quitting game...");
+                System.exit(0);
+                break;
+
+            case "1":
+                this.play();
+                break;
+
+            case "2":
+                System.out.println("Credits:");
+                System.out.println("Chum Bucket Escape Room Game");
+                System.out.println("Created by: Konstantinos Magnisalis\n");
+                this.menu();
+                break;
+
+            default:
+                System.out.println("Invalid choice.  Please try again.\n");
+                this.menu();
+                break;
         }
     }
 
@@ -116,8 +118,8 @@ public class MagnisalisEscapeRoom
 
         while(!gameOver)
         {
-            System.out.println("=================================================================");
-            System.out.printf("Enter a command: ");
+            System.out.println("===========================================================================");
+            System.out.print("Enter a command: ");
 
             input = scan.nextLine();
             System.out.println("You entered: " + input);
@@ -183,7 +185,7 @@ public class MagnisalisEscapeRoom
                 {
                     shed.look();
                 }
-                else if(noun.equalsIgnoreCase("chumbot"))
+                else if(noun.equalsIgnoreCase("chumbot") || noun.equalsIgnoreCase("robot"))
                 {
                     chumBot.look(userFoundChumBot);
                 }
@@ -232,7 +234,7 @@ public class MagnisalisEscapeRoom
                     System.out.println("Key");
                 if(userParts)
                     System.out.println("Spare Robot Parts");
-                if(unchargedBattery)
+                if(unchargedBattery && !chargedBattery)
                     System.out.println("Battery");
                 if(chargedBattery)
                     System.out.println("Charged Battery");
@@ -283,7 +285,8 @@ public class MagnisalisEscapeRoom
             {
                 if(noun.equalsIgnoreCase("battery"))
                 {
-                    chargedBattery = cabinet.charge(unchargedBattery);
+                    cabinet.charge(unchargedBattery);
+                    chargedBattery = cabinet.checkCharged();
                 }
                 else
                 {
@@ -325,6 +328,10 @@ public class MagnisalisEscapeRoom
                 if(noun.equalsIgnoreCase("battery"))
                 {
                     chumBot.insertBattery(chargedBattery, userFoundChumBot);
+                }
+                else if(noun.equalsIgnoreCase("parts"))
+                {
+                    System.out.println("You cannot 'insert' parts, did you mean 'attach'?");
                 }
                 else
                 {
@@ -381,6 +388,13 @@ public class MagnisalisEscapeRoom
                 System.out.println("Invalid command, you cannot '" + verb + "' that.\nType \"help\" for a list of commands.");
             }
 
+            if (posSpace != -1)
+            {
+                int is2ndspace = noun.indexOf(" ");
+                if (is2ndspace != -1)
+                    System.out.println("You can only enter one or two word commands.");
+            }
+
             if(chumBot.checkPoweredOn())
             {
                 chumBotPoweredOn = true;
@@ -413,6 +427,6 @@ public class MagnisalisEscapeRoom
         {
             System.out.println("GAME OVER: You have failed to escape the Chum Bucket.");
         }
-        System.out.println("=================================================================");
+        System.out.println("===========================================================================");
     }
 }

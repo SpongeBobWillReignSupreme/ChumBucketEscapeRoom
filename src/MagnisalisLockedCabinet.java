@@ -95,7 +95,7 @@ public class MagnisalisLockedCabinet
         }
     }
     
-    public boolean charge(boolean unchargedBattery)
+    public void charge(boolean unchargedBattery)
     {
         if(unchargedBattery)
         {
@@ -108,20 +108,21 @@ public class MagnisalisLockedCabinet
                 else
                 {
                     System.out.println("You charged the large battery.");
-                    chargerUsed = true;
                 }
-                return true;
+                chargerUsed = true;
             }
             else
             {
                 System.out.println("You don't have a charger.");
-                return false;
             }
         }
         else
         {
             System.out.println("You don't have a battery to charge.");
-            return false;
         }
+    }
+    public boolean checkCharged()
+    {
+        return chargerUsed;
     }
 }

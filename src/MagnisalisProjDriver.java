@@ -123,6 +123,9 @@ public class MagnisalisProjDriver
         MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
         escapeRoom.menu();
 
+        //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
+        //lock.unlock(true);
+
         // I had accessors and mutators, but I got rid of the useless ones so the classes are easier to read.
     }
 }

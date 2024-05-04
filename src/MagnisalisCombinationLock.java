@@ -3,6 +3,12 @@ import java.util.Scanner;
 // required - must use this class at least once
 public class MagnisalisCombinationLock
 {
+    // For ANSI color codes
+    private final String ANSI_RESET = "\u001B[0m";
+    private final String ANSI_RED = "\u001B[31m";
+    private final String ANSI_GREEN = "\u001B[32m";
+
+    // Instance variables
     private String hint;
     private String combination;
     private boolean openFlag;
@@ -54,34 +60,78 @@ public class MagnisalisCombinationLock
             // Prompt the player for the combination
             Scanner in = new Scanner(System.in);
 
-            System.out.println("=================================================================");
-            System.out.println("CHUMBOT SYSTEMS BOOTING UP...");
-            System.out.println("SYSTEMS BOOTED[\nCHUMBOT SECURITY SYSTEM:\nENTER 'cancel' TO ABORT.");
-
             while(!openFlag)
             {
-                System.out.println("=================================================================");
-                System.out.print("Hint: " + hint + "\nPLEASE ENTER THE PASSCODE:  ");
+                System.out.println("===========================================================================\n" +
+                        "//==================================\\\\\n" +
+                        "||       PL-TECH BIOS ver 1.4       ||\n" +
+                        "||                                  ||\n" +
+                        "||CHUMBOT SYSTEMS BOOTING UP...     ||\n" +
+                        "||SYSTEMS BOOTED[                   ||\n" +
+                        "||CHUMBOT SECURITY SYSTEM:          ||\n" +
+                        "||ENTER 'cancel' TO ABORT]          ||\n" +
+                        "||                                  ||\n" +
+                        "||Hint: " + hint + "              ||\n" +
+                        "||PLEASE ENTER THE PASSCODE:        ||\n" +
+                        "||                                  ||\n" +
+                        "\\\\==================================//\n");
                 String enteredCombination = (in.nextLine());
+                System.out.println("You entered: " + enteredCombination);
 
                 // Check if the combination is correct
                 if(enteredCombination.equals(combination))
                 {
                     // The combination is correct.
                     openFlag = true;
-                    System.out.println("PASSCODE ACCEPTED!\n");
+                    System.out.println("===========================================================================\n" +
+                            "//===================================\\\\\n" +
+                            "||       PL-TECH BIOS ver 1.4        ||\n" +
+                            "||                                   ||\n" +
+                            "||CHUMBOT SYSTEMS BOOTING UP...      ||\n" +
+                            "||SYSTEMS BOOTED[                    ||\n" +
+                            "||CHUMBOT SECURITY SYSTEM:           ||\n" +
+                            "||ENTER 'cancel' TO ABORT]           ||\n" +
+                            "||                                   ||\n" +
+                            "||Hint: " + hint + "               ||\n" +
+                            "||PLEASE ENTER THE PASSCODE:  " + ANSI_GREEN + "378" + ANSI_RESET + "    ||\n" +
+                            "||" + ANSI_GREEN + "PASSCODE ACCEPTED!" + ANSI_RESET + "                 ||\n" +
+                            "\\\\===================================//\n");
                 }
                 else if(enteredCombination.equals("cancel"))
                 {
                     // The player wants to cancel.
-                    System.out.println("ENTER PASSCODE ABORTED.");
+                    System.out.println("===========================================================================\n" +
+                            "//===================================\\\\\n" +
+                            "||       PL-TECH BIOS ver 1.4        ||\n" +
+                            "||                                   ||\n" +
+                            "||CHUMBOT SYSTEMS BOOTING UP...      ||\n" +
+                            "||SYSTEMS BOOTED[                    ||\n" +
+                            "||CHUMBOT SECURITY SYSTEM:           ||\n" +
+                            "||ENTER 'cancel' TO ABORT]           ||\n" +
+                            "||                                   ||\n" +
+                            "||Hint: " + hint + "               ||\n" +
+                            "||PLEASE ENTER THE PASSCODE:         ||\n" +
+                            "||" + ANSI_RED + "ENTER PASSCODE ABORTED." + ANSI_RESET + "           ||\n" +
+                            "\\\\===================================//\n");
                     canceled = true;
                     break;
                 }
                 else
                 {
                     // The combination is incorrect.
-                    System.out.println("INVALID PASSWORD. PLEASE TRY AGAIN.");
+                    System.out.println("===========================================================================\n" +
+                            "//===================================\\\\\n" +
+                            "||       PL-TECH BIOS ver 1.4        ||\n" +
+                            "||                                   ||\n" +
+                            "||CHUMBOT SYSTEMS BOOTING UP...      ||\n" +
+                            "||SYSTEMS BOOTED[                    ||\n" +
+                            "||CHUMBOT SECURITY SYSTEM:           ||\n" +
+                            "||ENTER 'cancel' TO ABORT]           ||\n" +
+                            "||                                   ||\n" +
+                            "||Hint: " + hint + "               ||\n" +
+                            "||PLEASE ENTER THE PASSCODE:         ||\n" +
+                            "||" + ANSI_RED + "INVALID PASSWORD. PLEASE TRY AGAIN." + ANSI_RESET + "||\n" +
+                            "\\\\===================================//\n");
                 }
             }
         }

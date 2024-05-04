@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class MagnisalisWiringPuzzle
 {
-    private String ANSI_RESET = "\u001B[0m";
-    private String ANSI_RED = "\u001B[31m";
-    private String ANSI_BLUE = "\u001B[34m";
-    private String ANSI_GREEN = "\u001B[32m";
+    private final String ANSI_RESET = "\u001B[0m";
+    private final String ANSI_RED = "\u001B[31m";
+    private final String ANSI_BLUE = "\u001B[34m";
+    private final String ANSI_GREEN = "\u001B[32m";
 
     private int wiresConnected;
     private boolean redWire;
@@ -45,7 +45,7 @@ public class MagnisalisWiringPuzzle
 
             while(!this.checkPuzzleSolved())
             {
-                System.out.println("=================================================================");
+                System.out.println("===========================================================================");
 
                 if(redWire && greenWire)
                 {
@@ -127,9 +127,12 @@ public class MagnisalisWiringPuzzle
                 }
 
                 System.out.println(puzzleImage);
-                System.out.printf("Enter a command: ");
+                System.out.print("Enter a command: ");
 
                 input = scanner.nextLine();
+
+                System.out.println("You entered: " + input);
+
                 posSpace = input.indexOf(" ");
 
                 if (posSpace == -1)
@@ -203,7 +206,7 @@ public class MagnisalisWiringPuzzle
                             "####" + ANSI_GREEN + "              {}            " + ANSI_RESET + "####\n" +
                             "#####                          #####\n" +
                             "####################################");
-                    System.out.println("=================================================================");
+                    System.out.println("===========================================================================");
                     System.out.println(puzzleImage);
                     System.out.println("\nYou have successfully connected all of the wires!");
                     this.checkPuzzleSolved();
