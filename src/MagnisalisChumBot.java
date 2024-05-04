@@ -23,15 +23,14 @@ public class MagnisalisChumBot
 
     public String toString()
     {
-        String output = "hasParts = " + hasParts + "\nhasChargedBattery = " + hasChargedBattery;
-        return output;
+        return "hasParts = " + hasParts + "\nhasChargedBattery = " + hasChargedBattery;
     }
 
     public void look(boolean userFound)
     {
         if(userFound)
         {
-            System.out.println("You see a broken robot, it is missing some parts and its battery.");
+            System.out.println("You see a broken robot, it seems like it has been disassembled.");
         }
         else
         {

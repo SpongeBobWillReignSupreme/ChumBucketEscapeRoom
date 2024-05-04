@@ -56,7 +56,7 @@ public class MagnisalisCombinationLock
 
             System.out.println("=================================================================");
             System.out.println("CHUMBOT SYSTEMS BOOTING UP...");
-            System.out.println("SYSTEMS BOOTED[\nCHUMBOT SECURITY SYSTEM:");
+            System.out.println("SYSTEMS BOOTED[\nCHUMBOT SECURITY SYSTEM:\nENTER 'cancel' TO ABORT.");
 
             while(!openFlag)
             {

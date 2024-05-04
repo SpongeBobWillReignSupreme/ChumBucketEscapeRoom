@@ -1,10 +1,12 @@
 /*
-    I allowed the user to substitute the word "open" for "unlock" when using the command "unlock [noun]".
-    I allowed the user to substitute the word "grab" for "take" when using the command "take [noun]".
-    I allowed the user to substitute the word "exit" for "quit" when using the command "quit".
-    I allowed the user to substitute the words "commands", "cmds", and "howto" for "help" when using the command "help".
-    I allowed the user to substitute the word "around" for nothing when using the command "look [noun]".
-    I allowed the user to substitute the word "wiring" for "wires" when using the command "fix [noun]".
+    I allowed the user to substitute the word "unlock" for "open" when using the "unlock" command.
+    I allowed the user to substitute the word "examine" for "search" when using the "examine shed" command.
+    I allowed the user to substitute the word "examine" for "search" and "open" when using the "examine chest".
+    I allowed the user to substitute the word "take" for "grab" and "pickup" when using the "take" command.
+    I allowed the user to substitute the word "quit" for "exit" when using the "quit" command.
+    I allowed the user to substitute the word "help" for "commands", "cmds", and "howto" when using the "help" command.
+    I allowed the user to substitute the word "around" for "" when using the "look" command.
+    I allowed the user to substitute the word "wiring" for "wires" when using the "fix" command.
 */
 
 import java.util.Scanner;
@@ -140,20 +142,23 @@ public class MagnisalisEscapeRoom
             else if(verb.equalsIgnoreCase("help") || verb.equalsIgnoreCase("commands") || verb.equalsIgnoreCase("cmds") || verb.equalsIgnoreCase("howto"))
             {
                 System.out.println("Commands:");
-                System.out.println("look [noun] - Look around or at a specific object");
-                System.out.println("examine [noun] - Examine a specific object");
+                System.out.println("look [noun] - Look around or at a specified object");
+                System.out.println("examine [noun] - Examines a specified object");
                 System.out.println("explain - Explains the game's backstory");
                 System.out.println("items - Lists the items you have");
-                System.out.println("search [noun] - Search a specific object");
-                System.out.println("unlock [noun] - Unlock a specific object");
-                System.out.println("charge [noun] - Charge a specific object");
-                System.out.println("take [noun] - Pick up a specific object");
-                System.out.println("enter [noun] - Enter a specific code");
-                System.out.println("insert [noun] - Insert a specific object");
-                System.out.println("attach [noun] - Attach a specific object");
-                System.out.println("plunge [noun] - Plunge a specific object");
-                System.out.println("flush [noun] - Flush a specific object");
-                System.out.println("fix [noun] - Fix a specific object");
+                System.out.println("open [noun] - Opens/unlocks a specified object");
+                System.out.println("search [noun] - Searches a specified object");
+                System.out.println("unlock [noun] - Unlocks a specified object");
+                System.out.println("charge [noun] - Charges a specified object");
+                System.out.println("take [noun] - Picks up a specified object");
+                if(userFoundChumBot)
+                    System.out.println("enter passcode - Enter a specific passcode");
+                System.out.println("insert [noun] - Inserts a specified object");
+                System.out.println("attach [noun] - Attaches a specified object");
+                System.out.println("plunge [noun] - Plunges a specified object");
+                System.out.println("flush [noun] - Flushes a specified object");
+                if(userFoundChumBot)
+                    System.out.println("fix [noun] - Fix a specific object");
                 System.out.println("quit");
             }
             else if(verb.equalsIgnoreCase("look"))
@@ -184,7 +189,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot look at that.");
+                    System.out.println("You cannot " + verb + " at '" + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("examine"))
@@ -212,7 +217,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot examine that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("explain"))
@@ -226,7 +231,7 @@ public class MagnisalisEscapeRoom
                 if(userKey)
                     System.out.println("Key");
                 if(userParts)
-                    System.out.println("Spare Parts Robot");
+                    System.out.println("Spare Robot Parts");
                 if(unchargedBattery)
                     System.out.println("Battery");
                 if(chargedBattery)
@@ -245,10 +250,25 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot search that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
-            else if(verb.equalsIgnoreCase("unlock") || verb.equalsIgnoreCase("open"))
+            else if(verb.equalsIgnoreCase("open"))
+            {
+                if(noun.equalsIgnoreCase("cabinet"))
+                {
+                    cabinet.unlockCabinet(userKey);
+                }
+                else if(noun.equalsIgnoreCase("chest"))
+                {
+                    chest.examine();
+                }
+                else
+                {
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
+                }
+            }
+            else if(verb.equalsIgnoreCase("unlock"))
             {
                 if(noun.equalsIgnoreCase("cabinet"))
                 {
@@ -256,7 +276,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot unlock that.");
+                    System.out.println("You cannot '" + verb + "' " + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("charge"))
@@ -267,10 +287,10 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot charge that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
-            else if(verb.equalsIgnoreCase("take") || verb.equalsIgnoreCase("grab"))
+            else if(verb.equalsIgnoreCase("take") || verb.equalsIgnoreCase("grab") || verb.equalsIgnoreCase("pickup"))
             {
                 if(noun.equalsIgnoreCase("battery"))
                 {
@@ -286,7 +306,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot take that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("enter"))
@@ -297,7 +317,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot enter that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("insert"))
@@ -308,7 +328,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot insert that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("attach"))
@@ -319,7 +339,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot attach that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("plunge"))
@@ -330,7 +350,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot plunge that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("flush"))
@@ -341,7 +361,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot flush that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
             else if(verb.equalsIgnoreCase("fix"))
@@ -353,7 +373,7 @@ public class MagnisalisEscapeRoom
                 }
                 else
                 {
-                    System.out.println("You cannot fix that.");
+                    System.out.println("You cannot " + verb + " '" + noun + "'.");
                 }
             }
             else
