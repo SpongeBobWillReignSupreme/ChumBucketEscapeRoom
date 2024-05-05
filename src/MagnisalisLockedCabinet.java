@@ -1,11 +1,13 @@
 /*
-Attributes
+Locked Cabinet
+
+Attributes:
 boolean locked
 boolean chargerUsed
 
-Methods
-void unlockCabinet(boolean userKey) This method changes locked to false
-void charge() This method changes the chargerUsed attribute to true
+Methods:
+void unlockCabinet(boolean userKey):  This method changes locked to false
+void charge():  This method changes the chargerUsed attribute to true
 */
 
 public class MagnisalisLockedCabinet
@@ -20,29 +22,11 @@ public class MagnisalisLockedCabinet
         locked = true;
         chargerUsed = false;
     }
-    
-    //creating accessor and mutator methods
-    public boolean getLocked()
-    {
-        return locked;
-    }
-    public boolean getChargerUsed()
-    {
-        return chargerUsed;
-    }
-    public void setLocked(boolean l)
-    {
-        locked = l;
-    }
-    public void setChargerUsed(boolean c)
-    {
-        chargerUsed = c;
-    }
-    
+
     //creating the toString() method
     public String toString()
     {
-        return "locked = " + locked + "\nChargerUsed = " + chargerUsed;
+        return "locked = " + locked + "\nchargerUsed = " + chargerUsed;
     }
     
     //creating the look and examine methods
@@ -63,14 +47,7 @@ public class MagnisalisLockedCabinet
         }
         else
         {
-            if(chargerUsed)
-            {
-                System.out.println("This is an opened cabinet with a used battery charger inside.");
-            }
-            else
-            {
-                System.out.println("This is an opened cabinet with an unused battery charger inside. ");
-            }
+                System.out.println("This is an opened cabinet with a large battery charger mounted inside.");
         }
     }
     
@@ -81,7 +58,7 @@ public class MagnisalisLockedCabinet
         {
             if(userKey)
             {
-                System.out.println("You have unlocked the cabinet! You found a large battery charger inside the cabinet.");
+                System.out.println("You have unlocked the cabinet! You found a large battery charger mounted inside.");
                 locked = false;
             }
             else
@@ -113,7 +90,7 @@ public class MagnisalisLockedCabinet
             }
             else
             {
-                System.out.println("You don't have a charger.");
+                System.out.println("You don't have something to charge the battery with.");
             }
         }
         else

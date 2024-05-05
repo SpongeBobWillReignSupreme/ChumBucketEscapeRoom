@@ -1,27 +1,28 @@
 /*
-Attributes
-boolean hasBattery
-boolean badChum
+Nasty Toilet
+
+Attributes:
+boolean containsBattery
 int plungeCount
 boolean isFlushed
 
-Methods
-void plunge()  increases plunge count by 1.
+Methods:
+void plunge():  Increases plunge count by 1 up to 2 times.
 void flush():  Will change isFlushed to true if the user has plunged at least twice.
-boolean takeBattery():   It first checks isFlushed is true and if plunge count == 2. if true then returns true to imply that the battery was taken and sets hasBattery to false. 
+boolean takeBattery():  It first checks isFlushed is true and if plunge count == 2. if true then returns true to imply that the battery was taken and sets containsBattery to false.
 */
 
 public class MagnisalisNastyToilet
 {
     //creating the instance variables
-    private boolean hasBattery;
+    private boolean containsBattery;
     private int plungeCount;
     private boolean isFlushed;
     
     //creating the default constructor
     public MagnisalisNastyToilet()
     {
-        hasBattery = true;
+        containsBattery = true;
         plungeCount = 0;
         isFlushed = false;
     }
@@ -29,51 +30,37 @@ public class MagnisalisNastyToilet
     //creating the toString
     public String toString()
     {
-        String output = "HasBattery = " + hasBattery + "\nPlungeCount = " + plungeCount + "\nisFlushed = " + isFlushed;
-        return output;
-    }
-    
-    //creating the accessor and mutator
-    public boolean getHasBattery()
-    {
-        return hasBattery;
-    }
-    public int getPlungeCount()
-    {
-        return plungeCount;
-    }
-    public boolean getIsFlushed()
-    {
-        return isFlushed;
-    }
-    public void setHasBattery(boolean b)
-    {
-        hasBattery = b;
-    }
-    public void setPlungeCount(int p)
-    {
-        plungeCount = p;
-    }
-    public void setIsFlushed(boolean f)
-    {
-        isFlushed = f;
+        return "containsBattery = " + containsBattery + "\nplungeCount = " + plungeCount + "\nisFlushed = " + isFlushed;
     }
     
     //creating the look() and examine() methods
     public void look()
     {
-        System.out.println("You see a nasty toilet, it is clogged with spoiled chum.\nThere is a usable plunger right next to it. Don't make it overflow!");
+        if(!isFlushed)
+        {
+            System.out.println("You see a nasty toilet, it is clogged with spoiled chum.\nThere is a usable plunger right next to it.");
+        }
+        else
+        {
+            System.out.println("You see a nasty toilet.");
+        }
     }
     public void examine()
     {
         if(!isFlushed)
-            System.out.println("This toilet is clogged with nasty chum. It has been plunged " + plungeCount + " times.");
+        {
+            System.out.println("This toilet is clogged with nasty chum. It has been plunged " + plungeCount + " times.  Don't make it overflow!");
+        }
         else
         {
-            if(hasBattery)
-                System.out.println("This is an empty toilet, there is a large battery at the bottom of the toilet bowl.");
+            if(containsBattery)
+            {
+                System.out.println("This is a nasty toilet, there is a large battery at the bottom of the toilet bowl.");
+            }
             else
+            {
                 System.out.println("This is an empty toilet.");
+            }
         }
     }
     
@@ -127,10 +114,10 @@ public class MagnisalisNastyToilet
     {
         if(isFlushed)
         {
-            if(hasBattery)
+            if(containsBattery)
             {
                 System.out.println("You took the battery from the toilet bowl, it is out of charge.");
-                hasBattery = false;
+                containsBattery = false;
             }
             else
             {

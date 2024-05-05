@@ -76,7 +76,7 @@ public class MagnisalisCombinationLock
                         "||                                  ||\n" +
                         "\\\\==================================//\n");
                 String enteredCombination = (in.nextLine());
-                System.out.println("You entered: " + enteredCombination);
+                System.out.println("You entered: '" + enteredCombination + "'");
 
                 // Check if the combination is correct
                 if(enteredCombination.equals(combination))

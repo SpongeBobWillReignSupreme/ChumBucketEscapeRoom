@@ -148,19 +148,20 @@ public class MagnisalisEscapeRoom
                 System.out.println("examine [noun] - Examines a specified object");
                 System.out.println("explain - Explains the game's backstory");
                 System.out.println("items - Lists the items you have");
+                System.out.println("take [noun] - Picks up a specified object");
                 System.out.println("open [noun] - Opens/unlocks a specified object");
                 System.out.println("search [noun] - Searches a specified object");
                 System.out.println("unlock [noun] - Unlocks a specified object");
-                System.out.println("charge [noun] - Charges a specified object");
-                System.out.println("take [noun] - Picks up a specified object");
-                if(userFoundChumBot)
-                    System.out.println("enter passcode - Enter a specific passcode");
-                System.out.println("insert [noun] - Inserts a specified object");
-                System.out.println("attach [noun] - Attaches a specified object");
                 System.out.println("plunge [noun] - Plunges a specified object");
                 System.out.println("flush [noun] - Flushes a specified object");
-                if(userFoundChumBot)
+                System.out.println("charge [noun] - Charges a specified object");
+                if(fixedWiring)
+                    System.out.println("enter passcode - Enter a specific passcode");
+                if(userFoundChumBot) {
+                    System.out.println("insert [noun] - Inserts a specified object");
+                    System.out.println("attach [noun] - Attaches a specified object");
                     System.out.println("fix [noun] - Fix a specific object");
+                }
                 System.out.println("quit");
             }
             else if(verb.equalsIgnoreCase("look"))
@@ -213,7 +214,7 @@ public class MagnisalisEscapeRoom
                     shed.examine();
                     userFoundChumBot = true;
                 }
-                else if(noun.equalsIgnoreCase("chumbot"))
+                else if(noun.equalsIgnoreCase("chumbot") || noun.equalsIgnoreCase("robot"))
                 {
                     chumBot.examine(userFoundChumBot);
                 }
@@ -307,6 +308,14 @@ public class MagnisalisEscapeRoom
                 {
                     userParts = chest.takeChumBotParts();
                 }
+                else if(noun.equalsIgnoreCase("charger"))
+                {
+                    System.out.println("You can't take the charger because.");
+                }
+                else if(noun.equalsIgnoreCase("plunger"))
+                {
+                    System.out.println("You don't need to take the plunger.");
+                }
                 else
                 {
                     System.out.println("You cannot " + verb + " '" + noun + "'.");
@@ -390,8 +399,8 @@ public class MagnisalisEscapeRoom
 
             if (posSpace != -1)
             {
-                int is2ndspace = noun.indexOf(" ");
-                if (is2ndspace != -1)
+                int secSpace = noun.indexOf(" ");
+                if (secSpace != -1)
                     System.out.println("You can only enter one or two word commands.");
             }
 
@@ -419,7 +428,7 @@ public class MagnisalisEscapeRoom
         if(lock.isUnlocked())
         {
             System.out.println("ChumBot:  HELLO, I AM CHUMBOT. I AM FULLY OPERATIONAL AND READY TO ASSIST YOU.\n");
-            System.out.println("You watch as ChumBot flies straight up through the ceiling, breaking through the roof of the Chum Bucket,\nflying around and back into the ChumBucket and busts down the door enabling you to escape.\n");
+            System.out.println("You watch as ChumBot flies straight up through the ceiling, breaking through the roof of the Chum Bucket,\nflying around and back into the ChumBucket and busts down the door enabling you to escape.\nYou walk out the door.\n");
             System.out.println("Congratulations! You have escaped the Chum Bucket!");
             System.out.println("Thank you for playing! I hope you enjoyed the game.");
         }

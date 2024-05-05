@@ -1,3 +1,17 @@
+/*
+Wiring Puzzle
+
+Attributes:
+int wiresConnected
+boolean redWire
+boolean blueWire
+boolean greenWire
+boolean canceled
+
+Methods:
+void solvePuzzle(boolean chumBotPoweredOn):  This method will display a wiring puzzle image and prompt the user to connect wires of the same color.
+*/
+
 import java.util.Scanner;
 
 public class MagnisalisWiringPuzzle

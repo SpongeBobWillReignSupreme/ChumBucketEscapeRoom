@@ -1,28 +1,29 @@
 /*
-Failed designs shed:
-Attributes
-boolean hasKey
+Failed Designs Shed
+
+Attributes:
+boolean containsKey
 boolean searched
-Methods
-void search():  This method changes the searched attribute to true.
-boolean takeKey()
+
+Methods:
+void examine():  This method changes the searched attribute to true.
+boolean takeKey():  This method changes the containsKey attribute to false
 */
 
 public class MagnisalisFailedDesignsShed
 {
-    private boolean hasKey;
+    private boolean containsKey;
     private boolean searched;
 
     public MagnisalisFailedDesignsShed()
     {
-        hasKey = true;
+        containsKey = true;
         searched = false;
     }
 
     public String toString()
     {
-        String output = "hasKey = " + hasKey + "\nsearched = " + searched;
-        return output;
+        return "containsKey = " + containsKey + "\nsearched = " + searched;
     }
 
     public void look()
@@ -33,7 +34,7 @@ public class MagnisalisFailedDesignsShed
     {
         if(searched)
         {
-            if(hasKey)
+            if(containsKey)
             {
                 System.out.println("There is a shed with a 'ChumBot' inside and a key under it.");
             }
@@ -53,10 +54,10 @@ public class MagnisalisFailedDesignsShed
     {
         if(searched)
         {
-            if(hasKey)
+            if(containsKey)
             {
                 System.out.println("You picked up the key.");
-                hasKey = false;
+                containsKey = false;
             }
             else
             {

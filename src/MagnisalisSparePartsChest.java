@@ -1,11 +1,13 @@
 /*
-Attributes
-boolean searched
-boolean hasChumBotParts
+Spare Parts Chest
 
-Methods
-void search():  This method changes the searched attribute to true.
-boolean takeChumBotParts():  This method changes the hasChumBotParts attribute to false  
+Attributes:
+boolean searched
+boolean containsChumBotParts
+
+Methods:
+void examine():  This method changes the searched attribute to true.
+boolean takeChumBotParts():  This method changes the containsChumBotParts attribute to false
 */
 
 public class MagnisalisSparePartsChest
@@ -62,12 +64,12 @@ public class MagnisalisSparePartsChest
             if(containsChumBotParts)
             {
                 System.out.println("You took the robot parts from the chest.");
-                containsChumBotParts = false;
             }
             else
             {
                 System.out.println("You already have the robot parts in your hand.");
             }
+            containsChumBotParts = false;
             return true;
         }
         else
