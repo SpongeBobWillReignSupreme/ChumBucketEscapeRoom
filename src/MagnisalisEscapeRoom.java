@@ -1,12 +1,14 @@
 /*
-    I allowed the user to substitute the word "unlock" for "open" when using the "unlock" command.
-    I allowed the user to substitute the word "examine" for "search" when using the "examine shed" command.
+    I allowed the user to substitute the word "examine" for "search" when using the "examine shed" and "examine chest" commands.
     I allowed the user to substitute the word "examine" for "search" and "open" when using the "examine chest".
+    I allowed the user to substitute the word "unlock" for "open" when using the "unlock" command.
     I allowed the user to substitute the word "take" for "grab" and "pickup" when using the "take" command.
     I allowed the user to substitute the word "quit" for "exit" when using the "quit" command.
     I allowed the user to substitute the word "help" for "commands", "cmds", and "howto" when using the "help" command.
-    I allowed the user to substitute the word "around" for "" when using the "look" command.
+    I allowed the user to substitute the word "around" for "" when using the "look around" command.
+    I allowed the user to substitute the word "chumbot" for "robot" when using the "look chumbot" and "examine chumbot" commands.
     I allowed the user to substitute the word "wiring" for "wires" when using the "fix" command.
+    I allowed the user to substiture the word "passcode" for "password" when using the "enter" command.
 */
 
 import java.util.Scanner;
