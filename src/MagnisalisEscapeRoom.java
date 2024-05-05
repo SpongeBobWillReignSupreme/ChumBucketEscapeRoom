@@ -52,7 +52,7 @@ public class MagnisalisEscapeRoom
 
     public String toString()
     {
-        return "userKey = " + userKey + "\nuserParts = " + userParts + "\nunchargedBattery = " + unchargedBattery + "\nchargedBattery = " + chargedBattery + "\nuserFoundChumBot = " + userFoundChumBot;
+        return "userKey = " + userKey + "\nuserParts = " + userParts + "\nunchargedBattery = " + unchargedBattery + "\nchargedBattery = " + chargedBattery + "\nuserFoundChumBot = " + userFoundChumBot + "\nchumBotPoweredOn = " + chumBotPoweredOn + "fixedWiring = " + fixedWiring + "gameOver = " + gameOver;
     }
 
     public void menu()
@@ -109,7 +109,7 @@ public class MagnisalisEscapeRoom
         String noun;
         int posSpace;
 
-        System.out.println("Welcome to the ChumBucket Escape Room!");
+        System.out.println("Welcome to the Chum Bucket Escape Room!");
         System.out.println("Sheldon J. Plankton has captured you and trapped you in the basement of the Chum Bucket.\nThere is a nasty toilet with a plunger next to it,\na shed, a cabinet, and a chest.\nYou must find a way to escape the Chum Bucket.\n");
 
         System.out.println("Type \"help\" for a list of commands.\n");
@@ -323,7 +323,7 @@ public class MagnisalisEscapeRoom
             }
             else if(verb.equalsIgnoreCase("enter"))
             {
-                if(noun.equalsIgnoreCase("passcode"))
+                if(noun.equalsIgnoreCase("passcode") || noun.equalsIgnoreCase("password"))
                 {
                     lock.unlock(fixedWiring);
                 }

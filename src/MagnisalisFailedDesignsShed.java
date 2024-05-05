@@ -2,12 +2,12 @@
 Failed Designs Shed
 
 Attributes:
-boolean containsKey
-boolean searched
+boolean containsKey:  Represents if the shed has the key or not, starts as true
+boolean searched:  Represents if the user has examined/searched the shed, starts as false
 
 Methods:
 void examine():  This method changes the searched attribute to true.
-boolean takeKey():  This method changes the containsKey attribute to false
+boolean takeKey():  This method changes the containsKey attribute to false.
 */
 
 public class MagnisalisFailedDesignsShed

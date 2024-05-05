@@ -1,4 +1,4 @@
-public class MagnisalisProjDriver
+public class MagnisalisProj7Driver
 {
     //writing the main
     public static void main(String[]args)
@@ -118,13 +118,12 @@ public class MagnisalisProjDriver
         //lock.unlock();
         MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
         wiringPuzzle.solvePuzzle(true);
+         //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
+        //lock.unlock(true);
         */
 
         MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
         escapeRoom.menu();
-
-        //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
-        //lock.unlock(true);
 
         // I had accessors and mutators, but I got rid of the useless ones so the classes are easier to read.
     }

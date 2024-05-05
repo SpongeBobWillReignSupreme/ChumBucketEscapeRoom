@@ -2,11 +2,11 @@
 Wiring Puzzle
 
 Attributes:
-int wiresConnected
-boolean redWire
-boolean blueWire
-boolean greenWire
-boolean canceled
+int wiresConnected:  Represents how many wires have been connected
+boolean redWire:  Represents if the red wires have been connected
+boolean blueWire:  Represents if the blue wires have been connected
+boolean greenWire:  Represents if the green wires have been connected
+boolean canceled:  Represents if the user has canceled the wiring puzzle
 
 Methods:
 void solvePuzzle(boolean chumBotPoweredOn):  This method will display a wiring puzzle image and prompt the user to connect wires of the same color.

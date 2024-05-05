@@ -1,29 +1,29 @@
 /*
-ChumBot:
-Attributes
-boolean hasParts: Represents if the ChumBot has the parts or not.  Starts as false.
-boolean hasChargedBattery Represents if the ChumBot has the battery or not.  Starts as false.
-boolean puzzleSolved: Represents if the wiring has been fixed or not.  Starts as false.
-Methods
-boolean puzzleSolved(): Once you solve the wiring you win the game!
-void attachParts(boolean userFound, boolean userParts):  The user attempts to put the parts into the bot.  If they have the parts then hasParts will become true. Otherwise it will stay false.
-void insertBatter(boolean userFound, boolean userBattery)  The user attempts to put the battery into the bot.  If they have the battery then hasBattery will become true. Otherwise it will stay false.
+ChumBot
+
+Attributes:
+boolean containsParts:  Represents if the ChumBot has the parts or not, starts as false
+boolean containsChargedBattery:  Represents if the ChumBot has the battery or not, starts as false
+
+Methods:
+void attachParts(boolean userFound, boolean userParts):  The user attempts to attach the parts to the robot.  If they have the parts then containsParts will become true, otherwise it will stay false.
+void insertBatter(boolean userFound, boolean userBattery):  The user attempts to insert the battery into the robot.  If they have the battery then hasBattery will become true, otherwise it will stay false.
  */
 
 public class MagnisalisChumBot
 {
-    private boolean hasParts;
-    private boolean hasChargedBattery;
+    private boolean containsParts;
+    private boolean containsChargedBattery;
 
     public MagnisalisChumBot()
     {
-        hasParts = false;
-        hasChargedBattery = false;
+        containsParts = false;
+        containsChargedBattery = false;
     }
 
     public String toString()
     {
-        return "hasParts = " + hasParts + "\nhasChargedBattery = " + hasChargedBattery;
+        return "containsParts = " + containsParts + "\ncontainsChargedBattery = " + containsChargedBattery;
     }
 
     public void look(boolean userFound)
@@ -42,17 +42,17 @@ public class MagnisalisChumBot
     {
         if(userFound)
         {
-            if(hasParts && hasChargedBattery)
+            if(containsParts && containsChargedBattery)
             {
                 System.out.println("The ChumBot is powered on,\nall you need to do is fix the wiring to get it working.");
                 System.out.println("The ChumBot has '378' spray-painted on its torso.");
             }
-            else if(hasParts)
+            else if(containsParts)
             {
                 System.out.println("The ChumBot has been re-assembled, but it doesn't have a battery,\nyou must insert one fully charged.");
                 System.out.println("The ChumBot has '378' spray-painted on its torso.");
             }
-            else if(hasChargedBattery)
+            else if(containsChargedBattery)
             {
                 System.out.println("The ChumBot is fully charged but it is missing some parts,\nyou must reassemble it.");
                 System.out.println("The ChumBot has '378' spray-painted on its torso.");
@@ -75,18 +75,18 @@ public class MagnisalisChumBot
         {
             if(userParts)
             {
-                if(!hasParts)
+                if(!containsParts)
                 {
-                    if(!hasChargedBattery)
+                    if(!containsChargedBattery)
                     {
                         System.out.println("You attached the parts, the ChumBot is fully assembled,\nhowever it is still missing a charged battery.");
                     }
                     else
                     {
                         System.out.println("You have attached the parts, the ChumBot is fully assembled!");
-                        System.out.println("It has been powered on but the it is not working properly, there must be something wrong with the wiring.\n");
+                        System.out.println("It has been powered on but the it is not working properly,\nthere must be something wrong with the wiring.\n");
                     }
-                    hasParts = true;
+                    containsParts = true;
                 }
                 else
                 {
@@ -109,18 +109,18 @@ public class MagnisalisChumBot
         {
             if(userChargedBattery)
             {
-                if(!hasChargedBattery)
+                if(!containsChargedBattery)
                 {
-                    if(!hasParts)
+                    if(!containsParts)
                     {
-                        System.out.println("You inserted the battery, the ChumBot is fully charged,\nhowever the robot is still missing some parts.");
+                        System.out.println("You inserted the battery, the ChumBot is fully charged,\nhowever it is still missing some parts.");
                     }
                     else
                     {
                         System.out.println("You inserted the battery, the ChumBot is fully assembled!");
-                        System.out.println("It has been powered on but it is not working properly,\n there must be something wrong with the wiring.\n");
+                        System.out.println("It has been powered on but it is not working properly,\nthere must be something wrong with the wiring.\n");
                     }
-                    hasChargedBattery = true;
+                    containsChargedBattery = true;
                 }
                 else
                 {
@@ -139,6 +139,6 @@ public class MagnisalisChumBot
     }
     public boolean checkPoweredOn()
     {
-        return hasParts && hasChargedBattery;
+        return containsParts && containsChargedBattery;
     }
 }

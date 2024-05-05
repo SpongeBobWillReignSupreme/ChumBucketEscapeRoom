@@ -2,14 +2,14 @@
 Nasty Toilet
 
 Attributes:
-boolean containsBattery
-int plungeCount
-boolean isFlushed
+boolean containsBattery:  Represents if the toilet has a battery in it, starts as true
+int plungeCount:  Represents how many times the user has plunged the toilet, starts at 0
+boolean isFlushed:  Represents if the toilet has been flushed.  Starts as false.
 
 Methods:
 void plunge():  Increases plunge count by 1 up to 2 times.
 void flush():  Will change isFlushed to true if the user has plunged at least twice.
-boolean takeBattery():  It first checks isFlushed is true and if plunge count == 2. if true then returns true to imply that the battery was taken and sets containsBattery to false.
+boolean takeBattery():  It first checks isFlushed is true and if plunge count == 2.  If true then returns true to imply that the battery was taken and sets containsBattery to false.
 */
 
 public class MagnisalisNastyToilet

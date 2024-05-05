@@ -2,12 +2,12 @@
 Spare Parts Chest
 
 Attributes:
-boolean searched
-boolean containsChumBotParts
+boolean searched:  Represents if the user has examined/searched/opened the chest, starts as false
+boolean containsChumBotParts:  Represents if the chest has the robot parts or not, starts as true
 
 Methods:
 void examine():  This method changes the searched attribute to true.
-boolean takeChumBotParts():  This method changes the containsChumBotParts attribute to false
+boolean takeChumBotParts():  This method changes the containsChumBotParts attribute to false.
 */
 
 public class MagnisalisSparePartsChest

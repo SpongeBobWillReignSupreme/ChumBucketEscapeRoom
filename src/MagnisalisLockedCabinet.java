@@ -2,11 +2,11 @@
 Locked Cabinet
 
 Attributes:
-boolean locked
-boolean chargerUsed
+boolean locked: Represents if the cabinet is locked or not, starts as true
+boolean chargerUsed: Represents if the charger has been used or not, starts as false
 
 Methods:
-void unlockCabinet(boolean userKey):  This method changes locked to false
+void unlockCabinet(boolean userKey):  This method changes locked to false if the user has the key.
 void charge():  This method changes the chargerUsed attribute to true
 */
 
