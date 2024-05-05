@@ -226,7 +226,7 @@ public class MagnisalisEscapeRoom
             else if(verb.equalsIgnoreCase("explain"))
             {
                 System.out.println("You have been captured by Sheldon J. Plankton and trapped in the basement of the Chum Bucket.");
-                System.out.println("You must find a way to escape the Chum Bucket.");
+                System.out.println("You must find a way to escape.");
             }
             else if(verb.equalsIgnoreCase("items"))
             {

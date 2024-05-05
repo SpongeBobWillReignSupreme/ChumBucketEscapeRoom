@@ -49,7 +49,7 @@ public class MagnisalisChumBot
             }
             else if(containsParts)
             {
-                System.out.println("The ChumBot has been re-assembled, but it doesn't have a battery,\nyou must insert one fully charged.");
+                System.out.println("The ChumBot has been reassembled, but it doesn't have a battery,\nyou must insert one fully charged.");
                 System.out.println("The ChumBot has '378' spray-painted on its torso.");
             }
             else if(containsChargedBattery)
