@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 // required - must use this class at least once
-public class MagnisalisCombinationLock
+public class CombinationLock
 {
     // For ANSI color codes
     private final String ANSI_RESET = "\u001B[0m";
@@ -19,7 +19,7 @@ public class MagnisalisCombinationLock
     // The hint is also required.  This can be something like the format for what should be entered.
     //    For example:  (format: ##-##-##)
     //    Leave the hint blank if you don't want to use this.
-    public MagnisalisCombinationLock(String argCombination)
+    public CombinationLock(String argCombination)
     {
         // Set the combination.
         combination = argCombination;
@@ -36,7 +36,7 @@ public class MagnisalisCombinationLock
     // The hint is also required.  This can be something like the format for what should be entered.
     //    For example:  (format: ##-##-##)
     //    Leave the hint blank if you don't want to use this.
-    public MagnisalisCombinationLock(String argCombination, String argHint)
+    public CombinationLock(String argCombination, String argHint)
     {
         // Set the combination.
         combination = argCombination;

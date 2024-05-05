@@ -10,12 +10,12 @@ void examine():  This method changes the searched attribute to true.
 boolean takeKey():  This method changes the containsKey attribute to false.
 */
 
-public class MagnisalisFailedDesignsShed
+public class FailedDesignsShed
 {
     private boolean containsKey;
     private boolean searched;
 
-    public MagnisalisFailedDesignsShed()
+    public FailedDesignsShed()
     {
         containsKey = true;
         searched = false;
@@ -70,10 +70,5 @@ public class MagnisalisFailedDesignsShed
             System.out.println("What key are you trying to take?");
             return false;
         }
-    }
-
-    public boolean checkSearched()
-    {
-        return searched;
     }
 }

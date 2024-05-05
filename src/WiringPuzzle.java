@@ -14,7 +14,7 @@ void solvePuzzle(boolean chumBotPoweredOn):  This method will display a wiring p
 
 import java.util.Scanner;
 
-public class MagnisalisWiringPuzzle
+public class WiringPuzzle
 {
     private final String ANSI_RESET = "\u001B[0m";
     private final String ANSI_RED = "\u001B[31m";
@@ -26,7 +26,7 @@ public class MagnisalisWiringPuzzle
     private boolean blueWire;
     private boolean greenWire;
     private boolean canceled;
-    public MagnisalisWiringPuzzle()
+    public WiringPuzzle()
     {
         wiresConnected = 0;
         redWire = false;

@@ -10,12 +10,12 @@ void attachParts(boolean userFound, boolean userParts):  The user attempts to at
 void insertBatter(boolean userFound, boolean userBattery):  The user attempts to insert the battery into the robot.  If they have the battery then hasBattery will become true, otherwise it will stay false.
  */
 
-public class MagnisalisChumBot
+public class ChumBot
 {
     private boolean containsParts;
     private boolean containsChargedBattery;
 
-    public MagnisalisChumBot()
+    public ChumBot()
     {
         containsParts = false;
         containsChargedBattery = false;

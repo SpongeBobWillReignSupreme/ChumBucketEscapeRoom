@@ -10,14 +10,14 @@ void examine():  This method changes the searched attribute to true.
 boolean takeChumBotParts():  This method changes the containsChumBotParts attribute to false.
 */
 
-public class MagnisalisSparePartsChest
+public class SparePartsChest
 {
     //creating the instance variables
     private boolean searched;
     private boolean containsChumBotParts;
     
     //creating the default constructor
-    public MagnisalisSparePartsChest()
+    public SparePartsChest()
     {
         searched = false;
         containsChumBotParts = true;

@@ -13,7 +13,7 @@
 
 import java.util.Scanner;
 
-public class MagnisalisEscapeRoom
+public class EscapeRoom
 {
     private boolean userKey;
     private boolean userParts;
@@ -24,15 +24,15 @@ public class MagnisalisEscapeRoom
     private boolean fixedWiring;
     private boolean gameOver;
 
-    private MagnisalisSparePartsChest chest;
-    private MagnisalisLockedCabinet cabinet;
-    private MagnisalisNastyToilet toilet;
-    private MagnisalisFailedDesignsShed shed;
-    private MagnisalisChumBot chumBot;
-    private MagnisalisCombinationLock lock;
-    private MagnisalisWiringPuzzle wiringPuzzle;
+    private SparePartsChest chest;
+    private LockedCabinet cabinet;
+    private NastyToilet toilet;
+    private FailedDesignsShed shed;
+    private ChumBot chumBot;
+    private CombinationLock lock;
+    private WiringPuzzle wiringPuzzle;
 
-    public MagnisalisEscapeRoom()
+    public EscapeRoom()
     {
         userKey = false;
         userParts = false;
@@ -43,13 +43,13 @@ public class MagnisalisEscapeRoom
         fixedWiring = false;
         gameOver = false;
 
-        chest = new MagnisalisSparePartsChest();
-        cabinet = new MagnisalisLockedCabinet();
-        toilet = new MagnisalisNastyToilet();
-        shed = new MagnisalisFailedDesignsShed();
-        chumBot = new MagnisalisChumBot();
-        wiringPuzzle = new MagnisalisWiringPuzzle();
-        lock = new MagnisalisCombinationLock("378", "3 digits (###)");
+        chest = new SparePartsChest();
+        cabinet = new LockedCabinet();
+        toilet = new NastyToilet();
+        shed = new FailedDesignsShed();
+        chumBot = new ChumBot();
+        wiringPuzzle = new WiringPuzzle();
+        lock = new CombinationLock("378", "3 digits (###)");
     }
 
     public String toString()
@@ -82,7 +82,7 @@ public class MagnisalisEscapeRoom
             case "2":
                 System.out.println("Credits:");
                 System.out.println("Chum Bucket Escape Room Game");
-                System.out.println("Created by: Konstantinos Magnisalis\n");
+                System.out.println("Created by: Konstantinos \n");
                 this.menu();
                 break;
 

@@ -1,4 +1,4 @@
-public class MagnisalisProj7Driver
+public class Proj7Driver
 {
     //writing the main
     public static void main(String[]args)
@@ -7,7 +7,7 @@ public class MagnisalisProj7Driver
         //SparePartsChest class
         
         //testing the default constructor
-        MagnisalisSparePartsChest c1 = new MagnisalisSparePartsChest();
+        SparePartsChest c1 = new SparePartsChest();
         
         //testing toString
         System.out.println(c1);
@@ -42,7 +42,7 @@ public class MagnisalisProj7Driver
         
         //testing the default constructor
         System.out.println("");
-        MagnisalisLockedCabinet lc1 = new MagnisalisLockedCabinet();
+        LockedCabinet lc1 = new LockedCabinet();
         
         //testing toString
         System.out.println("");
@@ -77,7 +77,7 @@ public class MagnisalisProj7Driver
         
         //testing the default constructor
         System.out.println("");
-        MagnisalisNastyToilet t1 = new MagnisalisNastyToilet();
+        NastyToilet t1 = new NastyToilet();
         
         //testing the toString
         System.out.println("");
@@ -112,17 +112,17 @@ public class MagnisalisProj7Driver
         boolean tB2 = t1.takeBattery();
         t1.examine();
         System.out.println("tB2 = " + tB2);
-        //MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
+        //WiringPuzzle wiringPuzzle = new WiringPuzzle();
         //wiringPuzzle.solvePuzzle(true);
-        //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
+        //CombinationLock lock = new CombinationLock("378", "3 digits (###)");
         //lock.unlock();
-        MagnisalisWiringPuzzle wiringPuzzle = new MagnisalisWiringPuzzle();
+        WiringPuzzle wiringPuzzle = new WiringPuzzle();
         wiringPuzzle.solvePuzzle(true);
-         //MagnisalisCombinationLock lock = new MagnisalisCombinationLock("378", "3 digits (###)");
+         //CombinationLock lock = new CombinationLock("378", "3 digits (###)");
         //lock.unlock(true);
         */
 
-        MagnisalisEscapeRoom escapeRoom = new MagnisalisEscapeRoom();
+        EscapeRoom escapeRoom = new EscapeRoom();
         escapeRoom.menu();
 
         // I had accessors and mutators, but I got rid of the useless ones so the classes are easier to read.

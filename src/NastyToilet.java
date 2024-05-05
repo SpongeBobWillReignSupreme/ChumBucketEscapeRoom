@@ -12,7 +12,7 @@ void flush():  Will change isFlushed to true if the user has plunged at least tw
 boolean takeBattery():  It first checks isFlushed is true and if plunge count == 2.  If true then returns true to imply that the battery was taken and sets containsBattery to false.
 */
 
-public class MagnisalisNastyToilet
+public class NastyToilet
 {
     //creating the instance variables
     private boolean containsBattery;
@@ -20,7 +20,7 @@ public class MagnisalisNastyToilet
     private boolean isFlushed;
     
     //creating the default constructor
-    public MagnisalisNastyToilet()
+    public NastyToilet()
     {
         containsBattery = true;
         plungeCount = 0;

@@ -10,14 +10,14 @@ void unlockCabinet(boolean userKey):  This method changes locked to false if the
 void charge():  This method changes the chargerUsed attribute to true
 */
 
-public class MagnisalisLockedCabinet
+public class LockedCabinet
 {
     //creating instance variables
     private boolean locked;
     private boolean chargerUsed;
     
     //creating default constructor
-    public MagnisalisLockedCabinet()
+    public LockedCabinet()
     {
         locked = true;
         chargerUsed = false;
