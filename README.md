@@ -15,7 +15,7 @@ In this escape room game, players find themselves trapped inside Sheldon J. Plan
 
 - **Immersive Gameplay**: Engage in an immersive experience as you navigate through various rooms of the Chum Bucket, each with its own set of challenges and surprises.
 - **Puzzle Solving**: Test your wits and problem-solving skills by solving puzzles, deciphering clues, and uncovering hidden objects.
-- **Interactive Environment**: Interact with objects and characters from the SpongeBob universe, including familiar faces like Plankton, Karen, and maybe even SpongeBob himself!
+- **Interactive Environment**: Interact with objects and characters from the SpongeBob universe, including the Chum Bucket and Planton's failed designs and more coming soon hopefully!
 - **Java Implementation**: Built entirely in Java, ensuring platform compatibility and smooth performance across different systems.
 
 ## How to Play
